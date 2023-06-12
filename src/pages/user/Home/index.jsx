@@ -26,7 +26,7 @@ export function Home() {
   }, []);
 
   useEffect(() => {
-    window.innerWidth >= 700 ? setCarouselSize(4)  : setCarouselSize(2);
+    window.innerWidth >= 700 ? setCarouselSize(4) : setCarouselSize(2);
   }, [carouselSize])
 
   return(
@@ -48,8 +48,12 @@ export function Home() {
       </Section>
 
       <Meals>
+         <ControllerBoxLeft>
+           <Controller prev carouselId={"meal"} />
+         </ControllerBoxLeft>
+
           {categoryMeal.length > 0 && (
-            <Carousel gap="16" itemCountPerPanel={carouselSize} customMode carouselId={"1"}>
+            <Carousel gap="15px" itemCountPerPanel={carouselSize} customMode carouselId={"meal"}>
               {
                 categoryMeal.map((meal) => (
                   <Item 
@@ -67,15 +71,9 @@ export function Home() {
           )}
         {
           categoryMeal.length >= carouselSize && 
-            <>
-          <ControllerBoxLeft>
-            <Controller prev carouselId={"1"} />
-          </ControllerBoxLeft>
-
-          <ControllerBoxRight>
-            <Controller next carouselId={"1"} />
-          </ControllerBoxRight>
-            </>
+            <ControllerBoxRight>
+              <Controller next carouselId={"meal"} />
+            </ControllerBoxRight>
           }
         </Meals>
 
@@ -85,7 +83,7 @@ export function Home() {
         
       <Meals>
           {categoryDessert.length > 0 && (
-            <Carousel gap="16" itemCountPerPanel={carouselSize} customMode carouselId={"1"}>
+            <Carousel gap="16" itemCountPerPanel={carouselSize} customMode carouselId={"dessert"}>
               {
                 categoryDessert.map((meal) => (
                   <Item 
@@ -105,11 +103,11 @@ export function Home() {
           categoryDessert.length >= carouselSize && 
             <>
           <ControllerBoxLeft>
-            <Controller prev carouselId={"1"} />
+            <Controller prev carouselId={"dessert"} />
           </ControllerBoxLeft>
 
           <ControllerBoxRight>
-            <Controller next carouselId={"1"} />
+            <Controller next carouselId={"dessert"} />
           </ControllerBoxRight>
             </>
           }
@@ -121,7 +119,7 @@ export function Home() {
 
       <Meals>
       {categoryDrink.length > 0 && (
-            <Carousel gap="16" itemCountPerPanel={carouselSize} customMode carouselId={"1"}>
+            <Carousel gap="16" itemCountPerPanel={carouselSize} customMode carouselId={"drink"}>
               {
                 categoryDrink.map((meal) => (
                   <Item 
@@ -141,11 +139,11 @@ export function Home() {
           categoryDrink.length >= carouselSize && 
             <>
           <ControllerBoxLeft>
-            <Controller prev carouselId={"1"} />
+            <Controller prev carouselId={"drink"} />
           </ControllerBoxLeft>
 
           <ControllerBoxRight>
-            <Controller next carouselId={"1"} />
+            <Controller next carouselId={"drink"} />
           </ControllerBoxRight>
             </>
           }

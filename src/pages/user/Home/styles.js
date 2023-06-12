@@ -117,7 +117,7 @@ export const Meals = styled.div`
   
   display: flex;
   align-items: center;
-  overflow-x: auto;
+  overflow-x: hidden;
   
   @media(max-width: 699px){
     gap: 20px;
@@ -161,26 +161,25 @@ export const ControllerBoxLeft = styled.div`
   display: flex;
   justify-content: flex-start; 
   align-items: center;
-  position: absolute;
-
+  position: relative;
 
   @media(max-width: 699px){
-    right: 340px;
+    margin-right: -40px;
   }
   @media(min-width: 700px){
-    right: 1250px;
+    margin-right: -70px;
   }
   
 `
 export const ControllerBoxRight = styled.div`
   display: flex;
   justify-content: center;  
-  position: absolute;
+  position: relative;
   
   @media(max-width: 699px){
-    left: 340px;
+    margin-left: -60px;
   }
   @media(min-width: 700px){
-    left: 1250px;
+    margin-left: -130px;
   }
 `

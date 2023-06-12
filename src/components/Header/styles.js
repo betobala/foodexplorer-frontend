@@ -58,7 +58,16 @@ export const Desktop = styled.div`
 
   input {
     min-width: 100px;
+    max-width: 100%;
     padding: 4px 10px;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+
   }
 
 `

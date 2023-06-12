@@ -1,17 +1,20 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-export const Container = styled.button`
+export const Container = styled(Link)`
   
   display: flex;
   align-self: center;
   background-color: transparent;
   border: none;
   text-decoration: none;
+  text-align: center;
 
-  h1 {
+  span {
     position: relative;
     right: 14px;
     bottom: 10px;
+    
     
     width: 20px;
     height: 20px;

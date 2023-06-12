@@ -9,6 +9,7 @@ export const Container = styled.div`
 
   @media(max-width: 699px){
     gap: 12px;
+    width: 180px;
     
     button {
       margin-top: 4px;
@@ -16,7 +17,7 @@ export const Container = styled.div`
   }
 
   @media(min-width: 700px){
-    width: 280px;
+    width: 300px;
     gap: 15px;
 
   }
@@ -81,7 +82,7 @@ export const ItemName = styled.div`
       font-weight: 500;
       font-size: 14px;
       line-height: 24px;
-  
+      min-height: 50px;
     }
     img {
     width: 6px;
@@ -147,6 +148,7 @@ export const ButtonWrapper = styled.div`
       padding: 4px 10px
     }
   }
+  
   @media(min-width: 700px){
     width: 208px;
     display: flex;

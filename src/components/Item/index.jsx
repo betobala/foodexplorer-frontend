@@ -129,7 +129,6 @@ export function Item({ title, description, image: Image, price, isAdmin = false,
 
     <ItemName>
       <h1>{title}</h1>
-      <img src={CaretRight}/>
     </ItemName>
 
     <Description>

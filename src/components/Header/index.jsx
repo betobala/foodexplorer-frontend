@@ -14,10 +14,9 @@ import { useEffect, useState } from "react";
 import { api } from "../../services/api";
 
 export function Header({ isAdmin = false }) {
-  const { signOut, user } = useAuth()
+  const { signOut } = useAuth()
   const navigation = useNavigate()
   const [cartId, setCartId] = useState()
-  const [cartProducts, setCartProducts] = useState()
   const [totalOfProducts, setTotalOfProducts] = useState(0)
 
   function handleSignOut() {
@@ -39,7 +38,7 @@ export function Header({ isAdmin = false }) {
 
   async function fetchTotalOfProducts(cart_id) {
     const response = await api.get(`/carts/${cart_id}`)
-    
+
     response.data.map((product) => (
       setTotalOfProducts(prevState => (prevState + 1))
     ))
@@ -50,12 +49,12 @@ export function Header({ isAdmin = false }) {
       const response = await api.get(`/carts`)
       setCartId(response.data.id)
     }
+
     fetchCart()
   }, [])
 
   useEffect(() => {
     fetchTotalOfProducts(cartId)
-
   }, [cartId])
 
 
@@ -74,9 +73,15 @@ export function Header({ isAdmin = false }) {
           {isAdmin ? <Logo isAdmin /> : <Logo />}
         </LogoWrapper>
 
-        {isAdmin ? <></> : <RequestButton_mobile
-                            onClick={() => handleOpenOrder()}
-                            requests={totalOfProducts} />}
+        {
+          isAdmin
+                  ? <></>
+                  : <RequestButton_mobile
+                    onClick={() => handleOpenOrder()}
+                    requests={totalOfProducts}
+                  />
+        }
+
       </Mobile>
 
       <Desktop>
@@ -88,31 +93,33 @@ export function Header({ isAdmin = false }) {
           placeholder="Busque por pratos ou ingredientes"
           isSearch
         />
-        {isAdmin ? <>
+        {isAdmin
+          ? <>
           <Button
             onClick={() => handleNavigationNewMeal()}
             title="Novo prato"
           />
           <ButtonText title="Histórico de pedidos" />
-        </>
+            </>
           :
-          <>
-            <ButtonText title="Histórico de pedidos" />
-            <ButtonText
-              title="Meus favoritos"
-              onClick={() => handleOpenFavorites()}
-            />
-            <RequestButton 
-              onClick={() => handleOpenOrder()}
-              requests={totalOfProducts} 
-            />
-          </>}
+            <nav>
+              <ButtonText title="Histórico de pedidos" />
+              <ButtonText
+                title="Meus favoritos"
+                onClick={() => handleOpenFavorites()}
+              />
+              <RequestButton
+                onClick={() => handleOpenOrder()}
+                requests={totalOfProducts}
+              />
+              <IconButton
+                icon={ExitIcon}
+                onClick={handleSignOut}
+              />
+            </nav>
+          }
 
 
-        <IconButton
-          icon={ExitIcon}
-          onClick={handleSignOut}
-        />
       </Desktop>
 
     </Container>

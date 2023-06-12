@@ -4,13 +4,29 @@ import { IconButton } from "../../../components/IconButton"
 import { Input } from "../../../components/Input"
 import { ButtonText } from "../../../components/ButtonText"
 import { Footer } from "../../../components/Footer"
+import { useNavigate } from "react-router-dom"
+import { useAuth } from "../../../hooks/auth"
 
 export function Menu({ isAdmin = false }) {
+  const { signOut } = useAuth()
+  const navigate = useNavigate()
+
+  function handleBack(){
+    navigate(-1)
+  }
+
+  function handleSignOut() {
+    navigate("/")
+    signOut()
+  }
 
   return(
     <Container>
       <HeaderMenu>
-        <IconButton icon={CloseIcon}/>
+        <IconButton
+          onClick={() => handleBack()}
+          icon={CloseIcon}
+        />
         <span>Menu</span>
       </HeaderMenu>
 
@@ -22,7 +38,10 @@ export function Menu({ isAdmin = false }) {
       </InputWrapper>
 
       <ButtonWrapper>
-        <ButtonText title="Sair" />
+        <ButtonText
+          onClick={() => handleSignOut()}
+          title="Sair"
+       />
       </ButtonWrapper>
 
       <Content>
