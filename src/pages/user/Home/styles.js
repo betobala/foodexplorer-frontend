@@ -1,13 +1,15 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  position: relative;
+  min-height: 100vh;
 
   @media(max-width: 699px) {
   
   }
 
   @media(min-width: 700px) {
-    margin: 0 auto;
+   
   }
 `
 export const HeaderWrapper = styled.div`
@@ -121,12 +123,13 @@ export const Meals = styled.div`
   
   @media(max-width: 699px){
     gap: 20px;
-    margin: 0 24px 24px;
+    margin: 0 24px 24px
   }
 
   @media(min-width: 700px){
     margin: 0 123px 46px;
     gap: 55px;
+    
   }
 
 `
@@ -181,5 +184,13 @@ export const ControllerBoxRight = styled.div`
   }
   @media(min-width: 700px){
     margin-left: -130px;
+  }
+`
+export const FooterSection = styled.div`
+  @media(max-width: 699px){
+    padding-bottom: 90px;
+  }
+  @media(min-width: 700px){
+    padding-bottom: 150px;
   }
 `

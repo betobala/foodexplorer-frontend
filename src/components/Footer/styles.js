@@ -1,10 +1,14 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  position: absolute;
+  bottom: 0;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
+  width: 100%;
 
   padding: 24px 28px;
   height: 77px;
