@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: grid;
+  width: 100%;
   grid-column-gap: 13px;
   grid-template-columns: 72px;
   grid-template-areas: "image nameprice"
@@ -15,6 +16,7 @@ export const MealImage = styled.div`
   }
 `
 export const NamePrice = styled.div`
+
   grid-area: nameprice;
   display: flex;
   align-items: center;
@@ -25,13 +27,24 @@ export const NamePrice = styled.div`
     font-size: 20px;
     line-height: 160%;
   }
+  @media(max-width: 700px){
+    p {
+      font-family: 'Roboto';
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 160%;
+      color: ${({ theme }) =>theme.COLORS.LIGHT_400};
+    }
+  
+  }
 
-  p {
-    font-family: 'Roboto';
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 160%;
-    color: ${({ theme }) =>theme.COLORS.LIGHT_400};
+
+  @media(max-width: 699px){
+    flex-direction: row;
+
+    p {
+      display: none;
+    }
   }
 `
 

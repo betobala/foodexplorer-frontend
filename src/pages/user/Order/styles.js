@@ -13,7 +13,7 @@ export const Container = styled.div`
 export const Hero = styled.div`
   display: flex;
   flex-direction: row;
-  gap: 120px;
+  gap: 100px;
   margin-top: 50px;
   min-height: 900px;
 
@@ -28,6 +28,15 @@ export const OrderProducts = styled.div`
     color: ${({ theme }) => theme.COLORS.LIGHT_300};
     margin-bottom: 16px;
   }
+
+  h4 {
+    font-size: 20px;
+    font-family: Poppins;
+    font-weight: 500;
+    line-height: 160%;
+    margin-bottom: 47px;
+  }
+  
 
   @media(max-width: 699px){
     display: flex;
@@ -46,7 +55,7 @@ export const OrderProducts = styled.div`
     display: flex;
     flex-direction: column;
     gap: 16px;
-    margin: 0 123px 0 123px;
+    margin: 0 123px 0 123px;    
 
     h1 {
       margin-top: 34px;
@@ -72,6 +81,11 @@ export const OrderProducts = styled.div`
     font-size: 20px;
     line-height: 160%;
   }
+`
+export const NextMobileButton = styled.div`
+  button {
+      margin-bottom: 120px;
+    }
 `
 
 export const Payment = styled.div`
@@ -192,4 +206,34 @@ export const InputWrapper = styled.div`
   border: 1px solid ${({ theme }) => theme.COLORS.LIGHT_600};
   border-radius: 5px;
   color: white;
+`
+export const WaitingPayment = styled(PixContent)`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+
+  svg {
+    width: 128px;
+    margin-top: 59px;
+  }
+
+  svg, path {
+    fill: ${({ theme }) => theme.COLORS.LIGHT_400};
+  }
+
+  h3 {
+    font-size: 20px;
+    font-family: Roboto;
+    font-weight: 700;
+    line-height: 160%;
+    color: ${({ theme }) => theme.COLORS.LIGHT_400};
+    text-align: center;
+
+    margin-bottom: 59px;
+  }
+`
+export const PaymentApproved = styled(WaitingPayment)`
+`
+export const OrderDelivered = styled(WaitingPayment)`
 `
