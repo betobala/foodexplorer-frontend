@@ -12,10 +12,20 @@ export const Container = styled.div`
 
 export const Hero = styled.div`
   display: flex;
-  flex-direction: row;
-  gap: 100px;
-  margin-top: 50px;
-  min-height: 900px;
+  
+  @media(max-width: 699px){
+    flex-direction: column;
+    margin-top: 56px;
+    min-height: 700px;
+  }
+
+  @media(min-width: 700px){
+    flex-direction: row;
+    margin-top: 34px;
+    gap: 100px;
+    margin-top: 34px;
+    min-height: 900px;
+  }
 
 `
 
@@ -43,23 +53,14 @@ export const OrderProducts = styled.div`
     flex-direction: column;
     gap: 16px;
   
-    margin: 0 35px 0 35px;
-
-    h1 {
-      margin-top: 56px;
-    }
-
+    margin: 0 35px;
   }
 
   @media(min-width: 700px){
     display: flex;
     flex-direction: column;
     gap: 16px;
-    margin: 0 123px 0 123px;    
-
-    h1 {
-      margin-top: 34px;
-    }
+    margin: 0 123px;    
   }
   
   h3 {
@@ -68,12 +69,7 @@ export const OrderProducts = styled.div`
     line-height: 160%;
   }
   @media(min-width: 1280px){
-    
     margin: 0 173px;
-
-    h1 {
-      margin-top: 34px;
-    }
   }
   
   h3 {
@@ -97,7 +93,17 @@ export const Payment = styled.div`
     font-size: 32px;
     line-height: 140%;
     color: ${({ theme }) => theme.COLORS.LIGHT_300};
-    margin-top: 34px;
+  }
+
+  @media(max-width: 699px){
+    max-width: 90vw;
+    margin: 0 auto;
+
+  }
+
+  @media(min-width: 700px){
+    width: 530px;
+    height: 445px;
   }
 
 `
@@ -147,6 +153,7 @@ export const Credit = styled(Pix)`
   border-style: solid;
   border-color: #76797B;
   border-radius: 0px 8px 0px 0px;
+  
 `
 
 export const Content = styled.div`
@@ -156,7 +163,15 @@ export const PixContent = styled.div`
   border: 1px solid #76797B;
   border-radius: 0px 0px 8px 8px;
   text-align: center;
-  padding: 47px 91px;
+  @media(min-width: 700px){
+    padding: 47px 91px;
+
+  }
+  @media(max-width: 699px){
+    svg {
+      width: 167px;
+    }
+  }
 `
 
 export const CreditContent = styled.div`
@@ -185,6 +200,10 @@ export const CreditContent = styled.div`
     text-align: left;
     margin-bottom: 8px;
   }
+
+  @media(max-width: 699px){
+    padding: 50px 20px;
+  }
 `
 
 export const CreditNumber = styled.div`
@@ -194,6 +213,24 @@ export const CreditNumber = styled.div`
 
 export const CreditValidity = styled.div`
   grid-area: validity;
+  input{
+
+    ::-webkit-datetime-edit-text { 
+      color: ${({ theme }) => theme.COLORS.LIGHT_500};
+     }
+    ::-webkit-datetime-edit-month-field { 
+      color: ${({ theme }) => theme.COLORS.LIGHT_500};
+     }
+    ::-webkit-datetime-edit-day-field { 
+      color: ${({ theme }) => theme.COLORS.LIGHT_500};
+     }
+    ::-webkit-datetime-edit-year-field { 
+      color: ${({ theme }) => theme.COLORS.LIGHT_500};
+     }
+    ::-webkit-calendar-picker-indicator {
+      filter: invert(1);
+    }
+  }
 
 `
 
@@ -210,16 +247,16 @@ export const InputWrapper = styled.div`
 export const WaitingPayment = styled(PixContent)`
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 37px;
   align-items: center;
+  padding: 59 91px;
 
   svg {
     width: 128px;
-    margin-top: 59px;
   }
 
   svg, path {
-    fill: ${({ theme }) => theme.COLORS.LIGHT_400};
+    fill: ${({ theme }) => theme.COLORS.LIGHT_500};
   }
 
   h3 {
@@ -227,10 +264,16 @@ export const WaitingPayment = styled(PixContent)`
     font-family: Roboto;
     font-weight: 700;
     line-height: 160%;
-    color: ${({ theme }) => theme.COLORS.LIGHT_400};
+    color: ${({ theme }) => theme.COLORS.LIGHT_500};
     text-align: center;
+  }
 
-    margin-bottom: 59px;
+  @media(max-width: 699px){
+    padding: 105px 20px;
+    gap: 24px;
+    svg {
+      width: 65px;
+    }
   }
 `
 export const PaymentApproved = styled(WaitingPayment)`

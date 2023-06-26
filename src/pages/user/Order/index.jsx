@@ -24,6 +24,7 @@ export function Order() {
   const [isPixTabActive, setIsPixTabActive] = useState(true)
   const [isCreditTabActive, setIsCreditTabActive] = useState(false)
   const [mobileState, setMobileState] = useState("products")
+  const [isTabDisabled, setIsTabDisabled] = useState(false)
 
 
   function handleBack() {
@@ -52,6 +53,7 @@ export function Order() {
     setIsCreditTabActive(false)
     setIsPixTabActive(false)
     setPaymentState("waitingPayment")
+    setIsTabDisabled(true)
 
     setTimeout(() => {
       paymentApproved();
@@ -75,11 +77,11 @@ export function Order() {
   }
 
   useEffect(() => {
-    window.innerWidth >= 700 ? setMobileState(0) : setMobileState("products")
+    window.innerWidth >= 700 ? setMobileState("desktop") : setMobileState("products")
 
   }, [])
 
-  
+
 
   useEffect(() => {
     fetchCartProducts(cartId)
@@ -111,9 +113,9 @@ export function Order() {
 
           <OrderProducts>
             {
-              mobileState === "desktop" || mobileState === "products" &&
-              <>
+              (mobileState === "desktop" || mobileState === "products") &&
 
+              <>
                 <h1>Meu pedido</h1>
                 {
                   cartProducts.map((product) => (
@@ -147,16 +149,17 @@ export function Order() {
         }
 
 
-        <Payment>
-          {
-            mobileState === "desktop" || mobileState === "payment" &&
-            <>
+        {
+          (mobileState === "desktop" || mobileState === "payment") &&
+          <Payment>
+            
               <h1>Pagamento</h1>
 
               <Tabs>
                 <Pix
                   active={isPixTabActive}
                   onClick={() => handleSelectPixTab()}
+                  disabled={isTabDisabled}
                 >
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <mask id="path-1-inside-1_49_1872" fill="white">
@@ -172,6 +175,7 @@ export function Order() {
                 <Credit
                   active={isCreditTabActive}
                   onClick={() => handleSelectCreditTab()}
+                  disabled={isTabDisabled}
                 >
                   <svg width="32" height="20" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.00023C0 0.895659 1.02335 0.000228882 2.28571 0.000228882H29.7143C30.9767 0.000228882 32 0.895659 32 2.00023V18.0002C32 19.1048 30.9767 20.0002 29.7143 20.0002H2.28571C1.02335 20.0002 0 19.1048 0 18.0002V2.00023ZM29.7143 2.00023H2.28571V18.0002H29.7143V2.00023Z" fill="white" />
@@ -273,9 +277,9 @@ export function Order() {
                   </OrderDelivered>
                 }
               </Content>
-            </>
-          }
-        </Payment>
+      
+          </Payment>
+        }
 
 
       </Hero>
