@@ -35,6 +35,10 @@ export function Header({ isAdmin = false }) {
   function handleOpenOrder() {
     navigation("/order")
   }
+  function handleOpenOrderHistory() {
+    navigation("/history")
+  }
+
 
   async function fetchTotalOfProducts(cart_id) {
     const response = await api.get(`/carts/${cart_id}`)
@@ -103,7 +107,10 @@ export function Header({ isAdmin = false }) {
             </>
           :
             <nav>
-              <ButtonText title="Histórico de pedidos" />
+              <ButtonText 
+                title="Histórico de pedidos"
+                onClick={() => handleOpenOrderHistory()}
+               />
               <ButtonText
                 title="Meus favoritos"
                 onClick={() => handleOpenFavorites()}
