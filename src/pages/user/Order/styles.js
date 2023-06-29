@@ -61,6 +61,7 @@ export const OrderProducts = styled.div`
     flex-direction: column;
     gap: 16px;
     margin: 0 123px;    
+    min-width: 280px;
   }
   
   h3 {

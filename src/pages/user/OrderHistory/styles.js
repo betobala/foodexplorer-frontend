@@ -3,7 +3,10 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  
+
+  position: relative;
+  min-height: 100vh;
 
 `
 export const Title = styled.div`
@@ -27,7 +30,7 @@ export const Title = styled.div`
     }
   } 
 `
-export const Content = styled.table`
+export const Desktop = styled.table`
   margin: 0 123px;
 
   display: inline-block;
@@ -65,7 +68,6 @@ export const Content = styled.table`
     border-right: 2px solid ${({ theme }) => theme.COLORS.DARK_1000};
   }
 
-
   th:first-child {
     border-top-left-radius: 12px;
   }
@@ -75,17 +77,21 @@ export const Content = styled.table`
     border-right: none;
   }
 
+
+  th:nth-child(1){
+    width: 15%;
+  }
+  td:nth-child(2){
+    width: 10%;
+  }
+  th:nth-child(2){
+    width: 10%;
+  }
   td:nth-child(3){
-    width: 70%;
+    width: 60%;
   }
   th:nth-child(3){
-    width: 70%;
-  }
-  td:nth-child(4){
-    width: 165px;
-  }
-  th:nth-child(4){
-    width: 165px;
+    width: 60%;
   }
 
   tbody td {
@@ -96,6 +102,13 @@ export const Content = styled.table`
 
     padding: 16px 24px;
   }
+  span {
+    color: ${({ theme }) => theme.COLORS.LIGHT_400};
+    font-size: 14px;
+    font-family: Roboto;
+    line-height: 160%;
+  }
+
 
   tbody td {
     border-right: 2px solid ${({ theme }) => theme.COLORS.DARK_1000};
@@ -121,5 +134,57 @@ export const Content = styled.table`
     
     
   }
+
+`
+export const Mobile = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 17px;
+  margin-bottom: 115px;
+`
+
+export const Card = styled.div`
+  display: grid;
+  grid-template-areas: "code status date"
+                       "products products products";
+                       border-radius: 12px;
+  
+  padding: 8px 20px;
+  align-items: center;
+
+  outline: 2px solid ${({ theme }) => theme.COLORS.DARK_1000};
+  margin: 0 30px;
+  text-align: left;
+
+  span {
+    color: var(--light-light-400, #C4C4CC);
+    /* Roboto/Smaller regular */
+    font-size: 14px;
+    font-family: Roboto;
+    line-height: 160%;
+  }
+
+  span:nth-child(1) {
+    grid-area: code;
+  }
+  span:nth-child(2) {
+    grid-area: status;
+  }
+  span:nth-child(3) {
+    grid-area: date;
+  }
+  span:nth-child(4) {
+    grid-area: products;
+  }
+`
+export const StatusElipse = styled.td`
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: left;
+  gap: 8px;
+  
+ 
 
 `

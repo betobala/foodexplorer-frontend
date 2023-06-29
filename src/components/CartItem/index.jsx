@@ -12,7 +12,9 @@ export function CartItem({ image: Image, quantity, name, price, id, fetchCartPro
     
     if(response){
       api.delete(`/carts/${id}`)
-     fetchCartProducts(cartId)
+
+      setTimeout(() => fetchCartProducts(cartId), 300)
+     
  
      return alert("Item excluído com sucesso.")
     }

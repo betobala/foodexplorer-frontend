@@ -66,6 +66,7 @@ export function Order() {
 
   function paymentApproved() {
     setPaymentState("paymentApproved")
+    handleAddToOrder()
 
     setTimeout(() => {
       orderDelivered();
@@ -76,10 +77,24 @@ export function Order() {
     setPaymentState("orderDelivered")
   }
 
+  async function handleAddToOrder(){
+    try {
+      await api.post(`/orders`, {
+        cartProducts,
+        totalPrice,
+        cartId
+      })
+      
+    } catch (error) {
+      
+    }
+
+  }
+
   useEffect(() => {
     window.innerWidth >= 700 ? setMobileState("desktop") : setMobileState("products")
 
-  }, [])
+  }, [window.innerWidth])
 
 
 
@@ -101,6 +116,7 @@ export function Order() {
     cartProducts.map((product) => (
       setTotalPrice(prevState => (prevState + (product.price * product.number_of_products)))
     ))
+    console.log(cartProducts)
 
   }, [cartProducts])
 
@@ -234,6 +250,7 @@ export function Order() {
                       title="Finalizar pagamento"
                       icon={ReceiptIcon}
                       onClick={() => handleFinishPayment()}
+                      
                     />
                   </CreditContent>
                 }

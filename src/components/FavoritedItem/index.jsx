@@ -7,8 +7,12 @@ export function FavoritedItem({ name, meal_id, image: Image, fetchMeal }){
   const { user } = useAuth()
 
   async function handleRemoveFavorite(user_id, meal_id){
-    await api.delete(`/favorites?user_id=${user_id}&meal_id=${meal_id}`)
-    fetchMeal(user_id)
+    const response = confirm("Tem certeza que deseja desfavoritar este produto?")
+
+    if(response){
+      await api.delete(`/favorites?user_id=${user_id}&meal_id=${meal_id}`)
+      fetchMeal(user_id)
+    }
   }
   return (
     <Container>

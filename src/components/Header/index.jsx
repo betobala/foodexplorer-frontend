@@ -93,10 +93,10 @@ export function Header({ isAdmin = false }) {
           {isAdmin ? <Logo isAdmin /> : <Logo />}
         </LogoWrapper>
 
-        <Input
+        {/* <Input
           placeholder="Busque por pratos ou ingredientes"
           isSearch
-        />
+        /> */}
         {isAdmin
           ? <>
           <Button
