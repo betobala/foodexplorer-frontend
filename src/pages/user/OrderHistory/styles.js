@@ -145,10 +145,14 @@ export const Mobile = styled.div`
 `
 
 export const Card = styled.div`
+  width: 85%;
   display: grid;
   grid-template-areas: "code status date"
                        "products products products";
-                       border-radius: 12px;
+                       
+  border-radius: 12px;
+  grid-row-gap: 16px;
+  
   
   padding: 8px 20px;
   align-items: center;

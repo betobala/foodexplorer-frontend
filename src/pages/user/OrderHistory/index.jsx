@@ -3,6 +3,7 @@ import { Header } from "../../../components/Header"
 import { Footer } from "../../../components/Footer"
 import { useEffect, useState } from "react"
 import { api } from "../../../services/api"
+import moment from "moment/moment"
 
 
 
@@ -10,9 +11,15 @@ export function OrderHistory() {
   const [userOrders, setUserOrders] = useState([])
 
   
-  async function teste() {
-    console.log(userOrders)
+  function statusColor(status){
+    if(status === "Pendente")
+      return "#AB222E"
+    if(status === "Preparando")
+      return "#FBA94C"
+    if(status === "Entregue")
+      return "#04D361"
   }
+
   useEffect(() => {
     async function fetchUserOrders() {
       const response = await api.get("/orders")
@@ -26,7 +33,6 @@ export function OrderHistory() {
     <Container>
       <Header />
 
-      <button onClick={() => teste()}>teste</button>
       <Title>
         {
           window.innerWidth >= 700 &&
@@ -37,6 +43,7 @@ export function OrderHistory() {
           <h1>Pedidos</h1>
         }
       </Title>
+
       {
         window.innerWidth >= 700 &&
         <Desktop>
@@ -48,22 +55,25 @@ export function OrderHistory() {
           </thead>
           <tbody>
 
-            {/* {
+            {
               userOrders.map((order) => (
-                <tr>
+                <tr key={order.id}>
                   <StatusElipse>
                     <svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="4" cy="4" r="4" transform="matrix(1 0 0 -1 0 8.57812)" fill="#AB222E" />
+                      <circle cx="4" cy="4" r="4" transform="matrix(1 0 0 -1 0 8.57812)" fill={statusColor(order.status)} />
                     </svg>
 
-                    <span>Pendente</span>
+                    <span>{order.status}</span>
                   </StatusElipse>
-                  <td>00000004</td>
-                  <td>1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá</td>
-                  <td>20/05 às 18h00</td>
+                  <td>{String(order.order_id).padStart(8, "0")}</td>
+                  <td>{order.products.map((product) => 
+                    <span>{`${product.number_of_products}x ${product.name}   `}</span>
+                  )}
+                  </td>
+                  <td>{moment(`${order.date}+00:00`).format("DD/MM HH:mm")}</td>
                 </tr>
               ))
-            } */}
+            }
           </tbody>
         </Desktop>
       }
@@ -72,22 +82,24 @@ export function OrderHistory() {
         window.innerWidth <= 699 &&
 
         <Mobile>
-          {/* {
+          {
             userOrders.map((order) => (
               <Card key={order.id}>
-                <span>00004</span>
+                <span>{String(order.order_id).padStart(6, "0")}</span>
                 <StatusElipse>
                   <svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="4" cy="4" r="4" transform="matrix(1 0 0 -1 0 8.57812)" fill="#AB222E" />
+                    <circle cx="4" cy="4" r="4" transform="matrix(1 0 0 -1 0 8.57812)" fill={statusColor(order.status)} />
                   </svg>
 
-                  <span>Pendente</span>
+                  <span>{order.status}</span>
                 </StatusElipse>
-                <span>20/05 às 18h00</span>
-                <span>1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá</span>
+                <span>{moment(`${order.date}+00:00`).format("DD/MM HH:mm")}</span>
+                <span>{order.products.map((product) => 
+                    <span>{`${product.number_of_products}x ${product.name}   `}</span>
+                  )}</span>
               </Card>
             ))
-          } */}
+          }
 
         </Mobile>
       }
