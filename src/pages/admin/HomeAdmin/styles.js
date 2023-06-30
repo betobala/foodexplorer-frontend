@@ -1,13 +1,15 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  position: relative;
+  min-height: 100vh;
 
   @media(max-width: 699px) {
   
   }
 
   @media(min-width: 700px) {
-    margin: 0 auto;
+   
   }
 `
 export const HeaderWrapper = styled.div`
@@ -16,15 +18,15 @@ export const HeaderWrapper = styled.div`
 export const Slogan = styled.div`
   @media(max-width: 699px){
     width: 376px;
-  height: 120px;
-  
-  margin: 44px auto 62px auto;
+    height: 120px;
+    
+    margin: 44px auto 62px auto;
 
-  border-radius: 3px;
+    border-radius: 3px;
 
-  display: flex;
+    display: flex;
 
-  background: ${({ theme }) => theme.COLORS.GRADIENT_200};
+    background: ${({ theme }) => theme.COLORS.GRADIENT_200};
 
   img {
     width: 191px;
@@ -117,16 +119,17 @@ export const Meals = styled.div`
   
   display: flex;
   align-items: center;
-  overflow-x: auto;
+  overflow-x: hidden;
   
   @media(max-width: 699px){
     gap: 20px;
-    margin: 0 24px 24px;
+    margin: 0 24px 24px
   }
 
   @media(min-width: 700px){
     margin: 0 123px 46px;
     gap: 55px;
+    
   }
 
 `
@@ -161,26 +164,33 @@ export const ControllerBoxLeft = styled.div`
   display: flex;
   justify-content: flex-start; 
   align-items: center;
-  position: absolute;
-
+  position: relative;
 
   @media(max-width: 699px){
-    right: 340px;
+    margin-right: -40px;
   }
   @media(min-width: 700px){
-    right: 1250px;
+    margin-right: -70px;
   }
   
 `
 export const ControllerBoxRight = styled.div`
   display: flex;
   justify-content: center;  
-  position: absolute;
+  position: relative;
   
   @media(max-width: 699px){
-    left: 340px;
+    margin-left: -60px;
   }
   @media(min-width: 700px){
-    left: 1250px;
+    margin-left: -130px;
+  }
+`
+export const FooterSection = styled.div`
+  @media(max-width: 699px){
+    padding-bottom: 90px;
+  }
+  @media(min-width: 700px){
+    padding-bottom: 150px;
   }
 `

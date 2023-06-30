@@ -80,3 +80,11 @@ export const IconButtonWrapper = styled.div`
     display: none;
   }
 `
+
+export const NewMealButtonWrapper = styled.div`
+  button {
+    min-width: 150px;
+
+  }
+
+`

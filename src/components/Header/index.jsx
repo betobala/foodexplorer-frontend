@@ -1,4 +1,4 @@
-import { Container, Mobile, Desktop, LogoWrapper, IconButtonWrapper } from "./styles";
+import { Container, Mobile, Desktop, LogoWrapper, IconButtonWrapper, NewMealButtonWrapper } from "./styles";
 import { IconButton } from "../IconButton"
 import { Button } from "../Button";
 import { RequestButton_mobile } from "../RequestButton_mobile";
@@ -34,6 +34,9 @@ export function Header({ isAdmin = false }) {
   }
   function handleOpenOrder() {
     navigation("/order")
+  }
+  function handleOpenOrderHistoryAdmin() {
+    navigation("/history")
   }
   function handleOpenOrderHistory() {
     navigation("/history")
@@ -79,11 +82,11 @@ export function Header({ isAdmin = false }) {
 
         {
           isAdmin
-                  ? <></>
-                  : <RequestButton_mobile
-                    onClick={() => handleOpenOrder()}
-                    requests={totalOfProducts}
-                  />
+            ? <></>
+            : <RequestButton_mobile
+              onClick={() => handleOpenOrder()}
+              requests={totalOfProducts}
+            />
         }
 
       </Mobile>
@@ -93,38 +96,50 @@ export function Header({ isAdmin = false }) {
           {isAdmin ? <Logo isAdmin /> : <Logo />}
         </LogoWrapper>
 
-        {/* <Input
+        <Input
           placeholder="Busque por pratos ou ingredientes"
           isSearch
-        /> */}
+        />
         {isAdmin
           ? <>
-          <Button
-            onClick={() => handleNavigationNewMeal()}
-            title="Novo prato"
-          />
-          <ButtonText title="Histórico de pedidos" />
-            </>
-          :
             <nav>
-              <ButtonText 
-                title="Histórico de pedidos"
-                onClick={() => handleOpenOrderHistory()}
-               />
+              <NewMealButtonWrapper>
+                <Button
+                  onClick={() => handleNavigationNewMeal()}
+                  title="Novo prato"
+                />
+              </NewMealButtonWrapper>
               <ButtonText
-                title="Meus favoritos"
-                onClick={() => handleOpenFavorites()}
-              />
-              <RequestButton
-                onClick={() => handleOpenOrder()}
-                requests={totalOfProducts}
-              />
+               title="Pedidos"
+               onClick={() => handleOpenOrderHistoryAdmin()}
+             />
+
+            </nav>
               <IconButton
                 icon={ExitIcon}
                 onClick={handleSignOut}
               />
-            </nav>
-          }
+          </>
+          :
+          <nav>
+            <ButtonText
+              title="Histórico de pedidos"
+              onClick={() => handleOpenOrderHistory()}
+            />
+            <ButtonText
+              title="Meus favoritos"
+              onClick={() => handleOpenFavorites()}
+            />
+            <RequestButton
+              onClick={() => handleOpenOrder()}
+              requests={totalOfProducts}
+            />
+            <IconButton
+              icon={ExitIcon}
+              onClick={handleSignOut}
+            />
+          </nav>
+        }
 
 
       </Desktop>

@@ -5,6 +5,7 @@ import { EditMealAdmin } from "../pages/admin/EditMealAdmin";
 import { MealDetailsAdmin } from "../pages/admin/MealDetailsAdmin"
 import { MenuAdmin } from "../pages/admin/MenuAdmin"
 import { NewMealAdmin } from "../pages/admin/NewMealAdmin"
+import { OrderHistoryAdmin } from "../pages/admin/OrderHistoryAdmin";
 
 export function AdminRoutes(){
   return(
@@ -14,6 +15,7 @@ export function AdminRoutes(){
       <Route path="/edit/:meal_id" element={<EditMealAdmin />} />
       <Route path="/details/:meal_id" element={<MealDetailsAdmin />} />
       <Route path="/menu" element={<MenuAdmin />} />
+      <Route path="/history" element={<OrderHistoryAdmin />} />
     </Routes>
   )
 }

@@ -1,4 +1,4 @@
-import { Container, Slogan, Section, HeaderWrapper, Meals, ControllerBoxLeft, ControllerBoxRight } from "./styles"
+import { Container, Slogan, Section, HeaderWrapper, Meals, ControllerBoxLeft, ControllerBoxRight, FooterSection } from "./styles"
 import SloganImage from "../../../assets/images/macaronPNG.png"
 import { Header } from "../../../components/Header"
 import { Item } from "../../../components/Item"
@@ -153,6 +153,8 @@ export function HomeAdmin() {
             </>
           }
         </Meals>
+
+      <FooterSection />
       
       <Footer />
     </Container>

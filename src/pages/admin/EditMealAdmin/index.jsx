@@ -184,7 +184,7 @@ export function EditMealAdmin() {
             <select
               onChange={e => setCategory(e.target.value)}
             >
-              <option>Seleciona a categoria</option>
+              <option>Selecione a categoria</option>
               <option value="meal">Refeição</option>
               <option value="dessert">Sobremesa</option>
               <option value="drink">Bebida</option>
