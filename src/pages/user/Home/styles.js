@@ -3,24 +3,16 @@ import styled from "styled-components";
 export const Container = styled.div`
   position: relative;
   min-height: 100vh;
-
-  @media(max-width: 699px) {
-  
-  }
-
-  @media(min-width: 700px) {
-   
-  }
 `
 export const HeaderWrapper = styled.div`
   width: 100%;
 `
 export const Slogan = styled.div`
-  @media(max-width: 699px){
-    width: 376px;
+  @media(max-width: 1099px){
+    width: 95%;
     height: 120px;
     
-    margin: 44px auto 62px auto;
+    margin: 44px auto 62px;
 
     border-radius: 3px;
 
@@ -66,10 +58,11 @@ export const Slogan = styled.div`
   }
   }
 
-  @media(min-width: 700px){
+  @media(min-width: 1100px){
     display: flex;
     align-items: center;
     height: 260px;
+    
     
     margin: 164px 124px 62px;
 
@@ -119,25 +112,15 @@ export const Meals = styled.div`
   
   display: flex;
   align-items: center;
-  overflow-x: hidden;
   
-  @media(max-width: 699px){
-    gap: 20px;
-    margin: 0 24px 24px
-  }
-
-  @media(min-width: 700px){
-    margin: 0 123px 46px;
-    gap: 55px;
-    
+  @media(max-width: 1099px){
+    overflow-x: auto;
   }
 
 `
 export const Section = styled.div`
 
-  @media(max-width: 699px){
-    margin: 0 24px;
-
+  @media(max-width: 1099px){
     h2 {
       font-weight: 500;
       font-size: 18px;
@@ -146,9 +129,8 @@ export const Section = styled.div`
     }
   }
 
-  @media(min-width: 700px){
-    margin: 0 123px;
-
+  @media(min-width: 1100px){
+    
     h2{
       font-family: 'Poppins';
       font-style: normal;
@@ -161,36 +143,35 @@ export const Section = styled.div`
   }
 `
 export const ControllerBoxLeft = styled.div`
-  display: flex;
-  justify-content: flex-start; 
-  align-items: center;
   position: relative;
-
-  @media(max-width: 699px){
-    margin-right: -40px;
-  }
-  @media(min-width: 700px){
-    margin-right: -70px;
-  }
   
 `
 export const ControllerBoxRight = styled.div`
-  display: flex;
-  justify-content: center;  
   position: relative;
-  
-  @media(max-width: 699px){
-    margin-left: -60px;
-  }
-  @media(min-width: 700px){
-    margin-left: -130px;
-  }
 `
 export const FooterSection = styled.div`
-  @media(max-width: 699px){
+  @media(max-width: 1099px){
     padding-bottom: 90px;
   }
   @media(min-width: 700px){
     padding-bottom: 150px;
   }
+`
+export const Desktop = styled.div`
+  @media(max-width: 1099px){
+    display: none;
+  }
+  margin: 0 124px;
+`
+
+export const Mobile = styled.div`
+
+@media(min-width: 1100px){
+    display: none;
+  }
+
+  @media(min-width: 650px){
+    margin: 0 72px;
+  }
+  margin: 0 24px;
 `

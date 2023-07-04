@@ -39,7 +39,7 @@ function AuthProvider({ children }) {
 
       setCookie("user", JSON.stringify(user), 18000);
       setCookie("token", token, 18000);
-  
+
 
       api.defaults.headers.common['Authorization'] = `Bearer ${token}`
 

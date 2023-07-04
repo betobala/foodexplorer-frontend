@@ -21,7 +21,7 @@ export const NameButton = styled.div`
     font-size: 20px;
     line-height: 160%;
 
-    color: ${({ theme }) =>theme.COLORS.LIGHT_300};
+    color: ${({ theme }) => theme.COLORS.LIGHT_300};
 
   }
   button {
@@ -31,7 +31,7 @@ export const NameButton = styled.div`
     font-size: 12px;
     line-height: 160%;
 
-    color: ${({ theme }) =>theme.COLORS.TOMATO_400};
+    color: ${({ theme }) => theme.COLORS.TOMATO_400};
   }
 
 `

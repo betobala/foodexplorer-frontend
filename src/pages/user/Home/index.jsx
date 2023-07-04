@@ -1,4 +1,4 @@
-import { Container, Slogan, Section, HeaderWrapper, Meals, ControllerBoxLeft, ControllerBoxRight, FooterSection } from "./styles"
+import { Container, Slogan, Section, HeaderWrapper, Meals, ControllerBoxLeft, ControllerBoxRight, FooterSection, Desktop, Mobile } from "./styles"
 import SloganImage from "../../../assets/images/macaronPNG.png"
 import { Header } from "../../../components/Header"
 import { Item } from "../../../components/Item"
@@ -16,6 +16,21 @@ export function Home() {
   const categoryDessert = meals.filter(meal => (meal.category == "dessert"))
   const categoryDrink = meals.filter(meal => (meal.category == "drink"))
 
+  function setCarouselSizeByWindowWidth() {
+    if (window.innerWidth <= 1280) {
+      setCarouselSize(3)
+      return
+    }
+    if (window.innerWidth <= 1750) {
+      setCarouselSize(4)
+      return
+    }
+    if (window.innerWidth <= 1920) {
+      setCarouselSize(5)
+      return
+    }
+  }
+
   useEffect(() => {
     async function fetchMeals() {
       const response = await api.get("/meals?name&ingredients");
@@ -26,10 +41,11 @@ export function Home() {
   }, []);
 
   useEffect(() => {
-    window.innerWidth >= 700 ? setCarouselSize(4) : setCarouselSize(2);
-  }, [carouselSize])
+    setCarouselSizeByWindowWidth()
 
-  return(
+  }, [window.innerWidth])
+
+  return (
     <Container>
       <HeaderWrapper>
         <Header />
@@ -43,114 +59,207 @@ export function Home() {
         </div>
       </Slogan>
 
-      <Section>
-      <h2>Refeições</h2>
-      </Section>
+      <Desktop>
+        {categoryMeal.length > 0 &&
+          <>
+            <Section>
+              <h2>Refeições</h2>
+            </Section>
 
-      <Meals>
-         <ControllerBoxLeft>
-           <Controller prev carouselId={"meal"} />
-         </ControllerBoxLeft>
-
-          {categoryMeal.length > 0 && (
-            <Carousel gap="15px" itemCountPerPanel={carouselSize} customMode carouselId={"meal"}>
+            <Meals>
               {
-                categoryMeal.map((meal) => (
-                  <Item 
-                    id={String(meal.id)}
-                    key={String(meal.id)}
-                    title={meal.name}
-                    description={meal.description}
-                    image={`${api.defaults.baseURL}/files/${meal.avatar}`}
-                    price={meal.price}
-                  />
-                  
-                ))}
-            </Carousel>
+                categoryMeal.length > carouselSize &&
 
-          )}
-        {
-          categoryMeal.length >= carouselSize && 
-            <ControllerBoxRight>
-              <Controller next carouselId={"meal"} />
-            </ControllerBoxRight>
-          }
-        </Meals>
+                <ControllerBoxLeft>
+                  <Controller prev carouselId={"1"} />
+                </ControllerBoxLeft>
+              }
 
-      <Section>
-        <h2>Sobremesas</h2>
-      </Section>
-        
-      <Meals>
-          {categoryDessert.length > 0 && (
-            <Carousel gap="16" itemCountPerPanel={carouselSize} customMode carouselId={"dessert"}>
+              <Carousel gap="4px" itemCountPerPanel={carouselSize} customMode carouselId={"1"}>
+                {
+                  categoryMeal.map((meal) => (
+                    <Item
+                      id={String(meal.id)}
+                      key={String(meal.id)}
+                      title={meal.name}
+                      description={meal.description}
+                      image={`${api.defaults.baseURL}/files/${meal.avatar}`}
+                      price={meal.price}
+                    />
+
+                  ))}
+              </Carousel>
+
+
               {
-                categoryDessert.map((meal) => (
-                  <Item 
-                    id={String(meal.id)}
-                    key={String(meal.id)}
-                    title={meal.name}
-                    description={meal.description}
-                    image={`${api.defaults.baseURL}/files/${meal.avatar}`}
-                    price={meal.price}
-                  />
-                  
-                ))}
-            </Carousel>
+                categoryMeal.length > carouselSize &&
 
-          )}
-        {
-          categoryDessert.length >= carouselSize && 
-            <>
-          <ControllerBoxLeft>
-            <Controller prev carouselId={"dessert"} />
-          </ControllerBoxLeft>
+                <ControllerBoxRight>
+                  <Controller next carouselId={"1"} />
+                </ControllerBoxRight>
 
-          <ControllerBoxRight>
-            <Controller next carouselId={"dessert"} />
-          </ControllerBoxRight>
-            </>
-          }
-        </Meals>
+              }
+            </Meals>
+          </>
+        }
 
-      <Section>
-        <h2>Bebidas</h2>   
-      </Section>
+        {categoryDessert.length > 0 &&
+          <>
+            <Section>
+              <h2>Sobremesas</h2>
+            </Section>
 
-      <Meals>
-      {categoryDrink.length > 0 && (
-            <Carousel gap="16" itemCountPerPanel={carouselSize} customMode carouselId={"drink"}>
+            <Meals>
               {
-                categoryDrink.map((meal) => (
-                  <Item 
-                    id={String(meal.id)}
-                    key={String(meal.id)}
-                    title={meal.name}
-                    description={meal.description}
-                    image={`${api.defaults.baseURL}/files/${meal.avatar}`}
-                    price={meal.price}
-                  />
-                  
-                ))}
-            </Carousel>
+                categoryDessert.length > carouselSize &&
 
-          )}
-        {
-          categoryDrink.length >= carouselSize && 
-            <>
-          <ControllerBoxLeft>
-            <Controller prev carouselId={"drink"} />
-          </ControllerBoxLeft>
+                <ControllerBoxLeft>
+                  <Controller prev carouselId={"2"} />
+                </ControllerBoxLeft>
+              }
 
-          <ControllerBoxRight>
-            <Controller next carouselId={"drink"} />
-          </ControllerBoxRight>
-            </>
-          }
-        </Meals>
+              <Carousel gap="12" itemCountPerPanel={carouselSize} customMode carouselId={"2"}>
+                {
+                  categoryDessert.map((meal) => (
+                    <Item
+                      id={String(meal.id)}
+                      key={String(meal.id)}
+                      title={meal.name}
+                      description={meal.description}
+                      image={`${api.defaults.baseURL}/files/${meal.avatar}`}
+                      price={meal.price}
+                    />
 
-        <FooterSection />
-      
+                  ))}
+              </Carousel>
+
+
+              {
+                categoryDessert.length > carouselSize &&
+
+                <ControllerBoxRight>
+                  <Controller next carouselId={"2"} />
+                </ControllerBoxRight>
+
+              }
+            </Meals>
+          </>
+        }
+
+        {categoryDrink.length > 0 &&
+          <>
+            <Section>
+              <h2>Bebidas</h2>
+            </Section>
+
+            <Meals>
+              {
+                categoryDrink.length > carouselSize &&
+
+                <ControllerBoxLeft>
+                  <Controller prev carouselId={"3"} />
+                </ControllerBoxLeft>
+              }
+
+              <Carousel gap="12" itemCountPerPanel={carouselSize} customMode carouselId={"3"}>
+                {
+                  categoryDrink.map((meal) => (
+                    <Item
+                      id={String(meal.id)}
+                      key={String(meal.id)}
+                      title={meal.name}
+                      description={meal.description}
+                      image={`${api.defaults.baseURL}/files/${meal.avatar}`}
+                      price={meal.price}
+                    />
+
+                  ))
+                }
+              </Carousel>
+
+
+              {
+                categoryDrink.length > carouselSize &&
+
+                <ControllerBoxRight>
+                  <Controller next carouselId={"3"} />
+                </ControllerBoxRight>
+
+              }
+            </Meals>
+          </>
+        }
+      </Desktop>
+
+      <Mobile>
+        <>
+          <Section>
+            <h2>Refeições</h2>
+          </Section>
+
+          <Meals>
+            {
+              categoryMeal.map((meal) => (
+                <Item
+                  id={String(meal.id)}
+                  key={String(meal.id)}
+                  title={meal.name}
+                  description={meal.description}
+                  image={`${api.defaults.baseURL}/files/${meal.avatar}`}
+                  price={meal.price}
+                />
+
+              ))
+            }
+
+          </Meals>
+          <Section>
+            <h2>Sobremesas</h2>
+          </Section>
+
+          <Meals>
+            {
+              categoryDessert.map((meal) => (
+                <Item
+                  id={String(meal.id)}
+                  key={String(meal.id)}
+                  title={meal.name}
+                  description={meal.description}
+                  image={`${api.defaults.baseURL}/files/${meal.avatar}`}
+                  price={meal.price}
+                />
+
+              ))
+            }
+
+          </Meals>
+          <Section>
+            <h2>Bebidas</h2>
+          </Section>
+
+          <Meals>
+            {
+              categoryDrink.map((meal) => (
+                <Item
+                  id={String(meal.id)}
+                  key={String(meal.id)}
+                  title={meal.name}
+                  description={meal.description}
+                  image={`${api.defaults.baseURL}/files/${meal.avatar}`}
+                  price={meal.price}
+                />
+
+              ))
+            }
+
+          </Meals>
+        </>
+
+      </Mobile>
+
+
+      <FooterSection />
+
       <Footer />
     </Container>
   )

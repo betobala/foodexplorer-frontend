@@ -1,20 +1,24 @@
-import { Container, ButtonBack, ImageUpload, Category, Items, Hero, Name, Ingredients, Price, Description, Heading, ButtonWrapper } from "./styles"
+import { Container, ButtonBack, ImageUpload, Category, Items, Hero, Name, Ingredients, Price, Description, Heading, ButtonWrapper, FooterSection } from "./styles"
+
 import { Header } from "../../../components/Header"
-import { Textarea } from "../../../components/TextArea"
+import { Textarea } from "../../../components/Textarea"
 import { Input } from "../../../components/Input"
 import { ButtonText } from "../../../components/ButtonText"
 import { Button } from "../../../components/Button"
 import { IngredientItem } from "../../../components/IngredientItem"
 import { Footer } from "../../../components/Footer"
+
 import CarrotLeft from "../../../assets/icons/CaretLeft.svg"
 import UploadIcon from "../../../assets/icons/Upload.svg"
-import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
-import { CurrencyInput } from 'react-currency-mask';
-import { useParams } from "react-router-dom"
 
+import { useEffect, useState } from "react"
+import { useNavigate, useParams } from "react-router-dom"
+
+import { CurrencyInput } from 'react-currency-mask';
 
 import { api } from "../../../services/api"
+
+
 
 export function EditMealAdmin() {
   const [isButtonDisable, setIsButtonDisable] = useState(false)
@@ -33,8 +37,6 @@ export function EditMealAdmin() {
   const [ingredients, setIngredients] = useState([]);
   const [newIngredient, setNewIngredient] = useState("");
 
-
-
   const navigate = useNavigate()
 
   const { meal_id } = useParams()
@@ -52,6 +54,7 @@ export function EditMealAdmin() {
     setIngredients(prevState => [...prevState, newIngredient]);
     setNewIngredient("");
   }
+
   function handleRemoveIngredient(deleted) {
     setIngredients(prevState => prevState.filter(ingredient => ingredient !== deleted));
   }
@@ -60,7 +63,7 @@ export function EditMealAdmin() {
     navigate(-1)
   }
 
-  async function handleEditMeal() { 
+  async function handleEditMeal() {
     if (!name) {
       return alert("Digite o nome do produto.")
     }
@@ -107,7 +110,7 @@ export function EditMealAdmin() {
     return true
   }
 
-  async function handleDeleteMeal(){
+  async function handleDeleteMeal() {
     await api.delete(`/meals/${meal_id}`)
     alert("Produto deletado com sucesso.")
     navigate("/")
@@ -116,7 +119,7 @@ export function EditMealAdmin() {
   useEffect(() => {
     setIsButtonDisable(disableButton())
   }, [name, description, category, price, ingredients])
- 
+
   useEffect(() => {
     async function fetchMealDetails() {
       const response = await api.get(`/meals/${meal_id}`)
@@ -150,7 +153,8 @@ export function EditMealAdmin() {
         <h1>Editar prato</h1>
       </Heading>
 
-      {meal &&
+      {
+        meal &&
         <Hero>
 
           <ImageUpload>
@@ -159,9 +163,9 @@ export function EditMealAdmin() {
             <label htmlFor="mealAvatar">
               <img src={UploadIcon} />
               <h2>Selecione imagem</h2>
-              <img 
-                className="mealImagePreview" 
-                src={avatarPreview ? `${api.defaults.baseURL}/files/${avatarPreview}` : avatar } />
+              <img
+                className="mealImagePreview"
+                src={avatarPreview ? `${api.defaults.baseURL}/files/${avatarPreview}` : avatar} />
               <input
                 id="mealAvatar"
                 type="file"
@@ -194,10 +198,10 @@ export function EditMealAdmin() {
 
           <Ingredients>
             <span>Ingredientes</span>
-            
+
             <Items>
               {
-              ingredients.map((ingredient, index) => (
+                ingredients.map((ingredient, index) => (
                   <IngredientItem
                     key={String(index)}
                     value={ingredient}
@@ -235,9 +239,9 @@ export function EditMealAdmin() {
             <span>Descrição</span>
             {meal.description &&
               <Textarea
-              placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
-              defaultValue={description}
-              onChange={e => setDescription(e.target.value)}
+                placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
+                defaultValue={description}
+                onChange={e => setDescription(e.target.value)}
               />
             }
           </Description>
@@ -254,8 +258,10 @@ export function EditMealAdmin() {
             />
           </ButtonWrapper>
         </Hero>
-      }       
-      
+      }
+
+      <FooterSection />
+
       <Footer />
 
     </Container>

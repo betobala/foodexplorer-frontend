@@ -110,15 +110,15 @@ export function Header({ isAdmin = false }) {
                 />
               </NewMealButtonWrapper>
               <ButtonText
-               title="Pedidos"
-               onClick={() => handleOpenOrderHistoryAdmin()}
-             />
+                title="Pedidos"
+                onClick={() => handleOpenOrderHistoryAdmin()}
+              />
 
             </nav>
-              <IconButton
-                icon={ExitIcon}
-                onClick={handleSignOut}
-              />
+            <IconButton
+              icon={ExitIcon}
+              onClick={handleSignOut}
+            />
           </>
           :
           <nav>

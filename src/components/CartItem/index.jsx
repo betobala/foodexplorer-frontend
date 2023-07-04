@@ -3,22 +3,22 @@ import { ButtonText } from "../ButtonText";
 import { api } from "../../services/api";
 import { useState, useEffect } from "react";
 
-export function CartItem({ image: Image, quantity, name, price, id, fetchCartProducts }){
+export function CartItem({ image: Image, quantity, name, price, id, fetchCartProducts }) {
   const [cartId, setCartId] = useState()
-  
-  
-  async function deleteProduct(){
+
+
+  async function deleteProduct() {
     const response = confirm("Tem certeza que deseja excluir este produto?")
-    
-    if(response){
+
+    if (response) {
       api.delete(`/carts/${id}`)
 
       setTimeout(() => fetchCartProducts(cartId), 300)
-     
- 
-     return alert("Item excluído com sucesso.")
+
+
+      return alert("Item excluído com sucesso.")
     }
-      
+
   }
 
   useEffect(() => {
@@ -29,23 +29,23 @@ export function CartItem({ image: Image, quantity, name, price, id, fetchCartPro
     fetchCart()
   }, [])
 
-  return(
-  <Container>
-    <MealImage>
-      <img src={Image}/>
-    </MealImage>
+  return (
+    <Container>
+      <MealImage>
+        <img src={Image} />
+      </MealImage>
 
-    <NamePrice>
-      <h3>{`${quantity}x ${name}`}</h3>
-      <p>{`${price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}`}</p>
-    </NamePrice>
+      <NamePrice>
+        <h3>{`${quantity}x ${name}`}</h3>
+        <p>{`${price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}`}</p>
+      </NamePrice>
 
-    <ButtonWrapper>
-      <ButtonText
-        onClick={() => deleteProduct()}
-        title="excluir"/>
-    </ButtonWrapper>
+      <ButtonWrapper>
+        <ButtonText
+          onClick={() => deleteProduct()}
+          title="excluir" />
+      </ButtonWrapper>
 
-  </Container>
+    </Container>
   )
 }

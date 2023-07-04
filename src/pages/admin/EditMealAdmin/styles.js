@@ -1,11 +1,16 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  position: relative;
+  min-height: 100vh;
+  margin: 0 auto;
+
   span {
     color: ${({ theme }) => theme.COLORS.LIGHT_400};
   }
+
   @media(max-width: 699px){
-    max-width: 428px;
+    
   }
 
 `
@@ -257,3 +262,12 @@ export const Items = styled.div`
     }
   }
 `
+
+export const FooterSection = styled.div`
+  @media(max-width: 699px){
+    padding-bottom: 90px;
+  }
+  @media(min-width: 700px){
+    padding-bottom: 150px;
+  }
+  `

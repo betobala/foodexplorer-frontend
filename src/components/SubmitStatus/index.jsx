@@ -6,7 +6,7 @@ export function SubmitStatus({ order, fetchUsersOrders }) {
   const [newOrderStatus, setNewOrderStatus] = useState(null)
 
   async function handleSubmitStatus(order_id, status) {
-   
+
     const response = await api.patch(`/orders/${order_id}`, {
       status
     })

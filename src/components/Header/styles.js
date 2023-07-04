@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 100%;
+  width: 100vw;
 
   
 
@@ -10,7 +10,7 @@ export const Container = styled.div`
 `
 
 export const LogoWrapper = styled(Link)`
-  @media(max-width: 699px){
+  @media(max-width: 1099px){
     img {
       width: 24px;
     }
@@ -23,7 +23,7 @@ export const LogoWrapper = styled(Link)`
     }
   }
 
-  @media(min-width: 700px){
+  @media(min-width: 1100px){
     min-width: 200px;
     img {
       width: 30px;
@@ -38,20 +38,20 @@ export const LogoWrapper = styled(Link)`
   }
 `
 export const Mobile = styled.div`
-  @media(min-width: 700px){
+  @media(min-width: 1100px){
     display: none;
   }
-  width: 100%;
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 56px 28px 24px;
 `
 export const Desktop = styled.div`
-  @media(max-width: 699px){
+  @media(max-width: 1099px){
     display: none;
   }
-  
+  width: 100vw;
   display: flex;
   align-items: center;
   gap: 32px;
@@ -76,7 +76,7 @@ export const Desktop = styled.div`
 `
 
 export const IconButtonWrapper = styled.div`
-  @media(min-width: 700px){
+  @media(min-width: 1100px){
     display: none;
   }
 `

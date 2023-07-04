@@ -4,10 +4,11 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  
 
-  background-color: ${({ theme, isNew }) => isNew ? "transparent" : theme.COLORS.LIGHT_600 };
+  background-color: ${({ theme, isNew }) => isNew ? "transparent" : theme.COLORS.LIGHT_600};
 
-  color: ${({ theme }) => theme.COLORS.LIGHT_100 };
+  color: ${({ theme }) => theme.COLORS.LIGHT_100};
 
   border: ${({ theme, isNew }) => isNew ? `1px dashed ${theme.COLORS.LIGHT_500}` : "none"};
 
@@ -25,7 +26,7 @@ export const Container = styled.div`
   }
 
   .button-delete {
-    color: ${({ theme }) => theme.COLORS.LIGHT_100 };
+    color: ${({ theme }) => theme.COLORS.LIGHT_100};
   }
 
   .button-add {
@@ -33,9 +34,16 @@ export const Container = styled.div`
   }
 
   > input {
-    color: ${({ theme }) => theme.COLORS.LIGHT_100 };
+    color: ${({ theme }) => theme.COLORS.LIGHT_100};
     background: transparent;
     border: none;
+
+    @media(max-width: 699px){
+      width: 150px;
+    }
+    @media(min-width: 700px){
+      min-width: 109px;
+    }
 
    
     &::placeholder {
@@ -55,7 +63,7 @@ export const Container = styled.div`
     line-height: 100%;
 
     @media(max-width: 699px){
-      min-width: 97px;
+      min-width: 150px;
     }
     @media(min-width: 700px){
       min-width: 109px;

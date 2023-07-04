@@ -13,7 +13,7 @@ import { api } from "../../services/api";
 
 
 
-export function Item({ title, description, image: Image, price, isAdmin = false, id }){
+export function Item({ title, description, image: Image, price, isAdmin = false, id }) {
   const [favorited, setFavorited] = useState()
   const [quantity, setQuantity] = useState(1)
   const [meal, setMeal] = useState({})
@@ -23,29 +23,29 @@ export function Item({ title, description, image: Image, price, isAdmin = false,
 
 
 
-  function toogleFavorite(){
+  function toogleFavorite() {
 
-    if(favorited){
+    if (favorited) {
       handleRemoveFavorite(user.id, id)
       setFavorited(!favorited)
-    }else{
+    } else {
       handleAddFavorite(user.id, id)
       setFavorited(!favorited)
     }
   }
-  function handleEdit(meal_id){
+  function handleEdit(meal_id) {
     navigate(`/edit/${meal_id}`)
   }
 
-  async function handleAddFavorite(user_id, meal_id){
+  async function handleAddFavorite(user_id, meal_id) {
     await api.post(`/favorites?user_id=${user_id}&meal_id=${meal_id}`)
   }
 
-  async function handleRemoveFavorite(user_id, meal_id){
+  async function handleRemoveFavorite(user_id, meal_id) {
     await api.delete(`/favorites?user_id=${user_id}&meal_id=${meal_id}`)
   }
 
-  async function handleAddToCart(cart_id, meal_id){
+  async function handleAddToCart(cart_id, meal_id) {
     try {
       await api.post(`/carts/${cart_id}`, {
         meal_id,
@@ -56,9 +56,9 @@ export function Item({ title, description, image: Image, price, isAdmin = false,
       setQuantity(1)
       alert("Item adcionado ao carrinho.")
 
-      
+
     } catch (error) {
-      
+
     }
 
   }
@@ -72,90 +72,90 @@ export function Item({ title, description, image: Image, price, isAdmin = false,
   }, [])
 
   useEffect(() => {
-    async function isThisMealFavorited(user_id, meal_id){
+    async function isThisMealFavorited(user_id, meal_id) {
       const response = await api.get(`/favorites?user_id=${user_id}&meal_id=${meal_id}`)
       const isFavorited = response.data.userFavorites
       isFavorited.map((favorited) => {
-        if(favorited.id){
+        if (favorited.id) {
           setFavorited(true)
         }
       })
-      
+
     }
 
     isThisMealFavorited(user.id, id)
   }, [])
 
   useEffect(() => {
-    async function fetchMeal(meal_id){
+    async function fetchMeal(meal_id) {
       const response = await api.get(`/meals/${meal_id}`)
       setMeal(response.data)
-      }
- 
-      fetchMeal(id)
+    }
+
+    fetchMeal(id)
   }, [])
 
-  return(
-  <Container>
+  return (
+    <Container>
 
-    {
-      isAdmin 
-      ? <PencilIcon>
-          <IconButton 
-            onClick={() => handleEdit(id)}
-            icon={Pencil}
-          />
-      </PencilIcon>
+      {
+        isAdmin
+          ? <PencilIcon>
+            <IconButton
+              onClick={() => handleEdit(id)}
+              icon={Pencil}
+            />
+          </PencilIcon>
 
-      : <FavoriteIcon>
-        
-        {favorited 
-        ? 
-        <IconButton
-        icon={FavoritedIcon}
-        onClick={() => toogleFavorite()}
-        />
-        :
-        <IconButton
-        icon={notFavoritedIcon}
-        onClick={() => toogleFavorite()}
-        />
-      } 
-      </FavoriteIcon>
-    }
-    <ItemImage to={`/details/${id}`}>
-      <img src={Image}/>
-    </ItemImage>
+          : <FavoriteIcon>
 
-    <ItemName>
-      <h1>{title}</h1>
-    </ItemName>
+            {favorited
+              ?
+              <IconButton
+                icon={FavoritedIcon}
+                onClick={() => toogleFavorite()}
+              />
+              :
+              <IconButton
+                icon={notFavoritedIcon}
+                onClick={() => toogleFavorite()}
+              />
+            }
+          </FavoriteIcon>
+      }
+      <ItemImage to={`/details/${id}`}>
+        <img src={Image} />
+      </ItemImage>
 
-    <Description>
-      <p>{description}</p>
-    </Description>
+      <ItemName>
+        <h1>{title}</h1>
+      </ItemName>
 
-    <Price>
-      <h2>{`${price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}`}</h2>
-    </Price>
-    
-    <ButtonWrapper>
-    {
-      isAdmin 
-      ? <></>
-      : <>
-          <Stepper
-           quantity={quantity}
-           setQuantity={setQuantity}
-          />
-          <Button
-           title="Incluir"
-           onClick={() => handleAddToCart(cartId, id)}
-          />
-        </>
-    }
-    </ButtonWrapper>
+      <Description>
+        <p>{description}</p>
+      </Description>
 
-  </Container>
+      <Price>
+        <h2>{`${price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}`}</h2>
+      </Price>
+
+      <ButtonWrapper>
+        {
+          isAdmin
+            ? <></>
+            : <>
+              <Stepper
+                quantity={quantity}
+                setQuantity={setQuantity}
+              />
+              <Button
+                title="Incluir"
+                onClick={() => handleAddToCart(cartId, id)}
+              />
+            </>
+        }
+      </ButtonWrapper>
+
+    </Container>
   )
 }

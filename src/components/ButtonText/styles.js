@@ -6,7 +6,7 @@ export const Container = styled.button`
   gap: 5px;
 
   background: none;
-  color: ${({ theme }) =>theme.COLORS.LIGHT_100};
+  color: ${({ theme }) => theme.COLORS.LIGHT_100};
 
   border: none;
   font-family: 'Poppins';

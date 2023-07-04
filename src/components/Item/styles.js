@@ -119,6 +119,7 @@ export const Description = styled.div`
 export const Price = styled.div`
   text-align: center;
   color: ${({ theme }) => theme.COLORS.CAKE_100};
+  
   @media(max-width: 699px){
     h2 {
       font-family: 'Roboto';

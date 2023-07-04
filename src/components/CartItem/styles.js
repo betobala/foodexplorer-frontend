@@ -33,7 +33,7 @@ export const NamePrice = styled.div`
       font-weight: 400;
       font-size: 12px;
       line-height: 160%;
-      color: ${({ theme }) =>theme.COLORS.LIGHT_400};
+      color: ${({ theme }) => theme.COLORS.LIGHT_400};
     }
   
   }
@@ -56,6 +56,6 @@ export const ButtonWrapper = styled.div`
     font-weight: 400;
     font-size: 12px;
     line-height: 160%;
-    color: ${({ theme }) =>theme.COLORS.TOMATO_400};
+    color: ${({ theme }) => theme.COLORS.TOMATO_400};
   }
 `

@@ -4,13 +4,6 @@ export const Container = styled.div`
   position: relative;
   min-height: 100vh;
 
-  @media(max-width: 699px) {
-  
-  }
-
-  @media(min-width: 700px) {
-   
-  }
 `
 export const HeaderWrapper = styled.div`
   width: 100%;
@@ -166,12 +159,12 @@ export const ControllerBoxLeft = styled.div`
   align-items: center;
   position: relative;
 
-  @media(max-width: 699px){
-    margin-right: -40px;
-  }
-  @media(min-width: 700px){
+  /* @media(max-width: 699px){
     margin-right: -70px;
   }
+  @media(min-width: 700px){
+    margin-right: -90px;
+  } */
   
 `
 export const ControllerBoxRight = styled.div`
@@ -179,12 +172,12 @@ export const ControllerBoxRight = styled.div`
   justify-content: center;  
   position: relative;
   
-  @media(max-width: 699px){
-    margin-left: -60px;
+  /* @media(max-width: 699px){
+    margin-left: -35px;
   }
   @media(min-width: 700px){
-    margin-left: -130px;
-  }
+    margin-left: -120px;
+  } */
 `
 export const FooterSection = styled.div`
   @media(max-width: 699px){
