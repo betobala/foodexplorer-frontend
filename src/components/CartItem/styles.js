@@ -27,7 +27,7 @@ export const NamePrice = styled.div`
     font-size: 20px;
     line-height: 160%;
   }
-  @media(max-width: 700px){
+  @media(max-width: 1100px){
     p {
       font-family: 'Roboto';
       font-weight: 400;
@@ -39,7 +39,7 @@ export const NamePrice = styled.div`
   }
 
 
-  @media(max-width: 699px){
+  @media(max-width: 1100px){
     flex-direction: row;
 
     p {

@@ -12,17 +12,19 @@ export const Container = styled.div`
 
 export const Hero = styled.div`
   display: flex;
+  margin: 0 auto;
   
-  @media(max-width: 699px){
+  
+  @media(max-width: 1100px){
     flex-direction: column;
     margin-top: 56px;
     min-height: 700px;
   }
 
-  @media(min-width: 700px){
+  @media(min-width: 1100px){
     flex-direction: row;
     margin-top: 34px;
-    gap: 100px;
+    gap: 20vw;
     margin-top: 34px;
     min-height: 900px;
   }
@@ -48,7 +50,7 @@ export const OrderProducts = styled.div`
   }
   
 
-  @media(max-width: 699px){
+  @media(max-width: 1100px){
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -56,11 +58,10 @@ export const OrderProducts = styled.div`
     margin: 0 35px;
   }
 
-  @media(min-width: 700px){
+  @media(min-width: 1100px){
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    margin: 0 123px;    
+    gap: 16px;  
     min-width: 280px;
   }
   
@@ -69,10 +70,7 @@ export const OrderProducts = styled.div`
     font-size: 20px;
     line-height: 160%;
   }
-  @media(min-width: 1280px){
-    margin: 0 173px;
-  }
-  
+
   h3 {
     font-weight: 500;
     font-size: 20px;
@@ -96,13 +94,13 @@ export const Payment = styled.div`
     color: ${({ theme }) => theme.COLORS.LIGHT_300};
   }
 
-  @media(max-width: 699px){
+  @media(max-width: 1100px){
     max-width: 90vw;
     margin: 0 auto;
 
   }
 
-  @media(min-width: 700px){
+  @media(min-width: 1100px){
     width: 530px;
     height: 445px;
   }
@@ -164,11 +162,11 @@ export const PixContent = styled.div`
   border: 1px solid #76797B;
   border-radius: 0px 0px 8px 8px;
   text-align: center;
-  @media(min-width: 700px){
+  @media(min-width: 1100px){
     padding: 47px 91px;
 
   }
-  @media(max-width: 699px){
+  @media(max-width: 1100px){
     svg {
       width: 167px;
     }
@@ -202,7 +200,7 @@ export const CreditContent = styled.div`
     margin-bottom: 8px;
   }
 
-  @media(max-width: 699px){
+  @media(max-width: 1100px){
     padding: 50px 20px;
   }
 `
@@ -269,7 +267,7 @@ export const WaitingPayment = styled(PixContent)`
     text-align: center;
   }
 
-  @media(max-width: 699px){
+  @media(max-width: 1100px){
     padding: 105px 20px;
     gap: 24px;
     svg {

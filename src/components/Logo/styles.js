@@ -7,7 +7,7 @@ export const Container = styled.div`
 
   gap: 10px;
 
-  @media(max-width: 699px){
+  @media(max-width: 1100px){
     h1 {
       font-family: 'Roboto';
       font-weight: 700;
@@ -24,7 +24,7 @@ export const Container = styled.div`
     }
   }
 
-  @media(min-width: 700px){
+  @media(min-width: 1100px){
     h1 {
       font-family: 'Roboto';
       color: ${({ theme }) => theme.COLORS.LIGHT_100};

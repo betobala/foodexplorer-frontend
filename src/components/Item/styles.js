@@ -6,8 +6,9 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 24px;
+  padding-top: ;
 
-  @media(max-width: 699px){
+  @media(max-width: 1100px){
     gap: 12px;
     width: 180px;
     
@@ -16,7 +17,7 @@ export const Container = styled.div`
     }
   }
 
-  @media(min-width: 700px){
+  @media(min-width: 1100px){
     width: 300px;
     gap: 15px;
 
@@ -27,13 +28,13 @@ export const FavoriteIcon = styled.div`
   img {
     width: 24px;
   }
-  @media(max-width: 699px){
+  @media(max-width: 1100px){
     position: relative;
     left: 65px;
     top: 40px;
   
   }
-  @media(min-width: 700px){
+  @media(min-width: 1100px){
     position: relative;
     left: 118px;
     top: 40px;
@@ -45,12 +46,12 @@ export const PencilIcon = styled.div`
   img {
     width: 20px;
   }
-  @media(max-width: 699px){
+  @media(max-width: 1100px){
     position: relative;
     left: 65px;
     top: 40px;
   }
-  @media(min-width: 700px){
+  @media(min-width: 1100px){
     position: relative;
     left: 118px;
     top: 40px;
@@ -58,12 +59,12 @@ export const PencilIcon = styled.div`
 `
 
 export const ItemImage = styled(Link)`
-  @media(max-width: 699px){
+  @media(max-width: 1100px){
       img {
       width: 88px;
       } 
   }
-  @media(min-width: 700px){
+  @media(min-width: 1100px){
       img {
       width: 176px;
       } 
@@ -73,22 +74,26 @@ export const ItemImage = styled(Link)`
 export const ItemName = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 5px;
   text-align: center;
   color: ${({ theme }) => theme.COLORS.LIGHT_300};
 
-  @media(max-width: 699px){
+  @media(max-width: 1100px){
+    width: 140px;
+    text-align: center;
+    
     h1 {
       font-weight: 500;
       font-size: 14px;
       line-height: 24px;
-      min-height: 50px;
+      
     }
     img {
     width: 6px;
     } 
   }
-  @media(min-width: 700px){
+  @media(min-width: 1100px){
     h1 {
       font-weight: 700;
       font-size: 24px;
@@ -101,7 +106,7 @@ export const ItemName = styled.div`
 
 `
 export const Description = styled.div`
-  @media(max-width: 699px){
+  @media(max-width: 1100px){
     display: none;
   }
 
@@ -119,15 +124,15 @@ export const Description = styled.div`
 export const Price = styled.div`
   text-align: center;
   color: ${({ theme }) => theme.COLORS.CAKE_100};
-  
-  @media(max-width: 699px){
+
+  @media(max-width: 1100px){
     h2 {
       font-family: 'Roboto';
       font-weight: 400;
       font-size: 16px;
     }
   }
-  @media(min-width: 700px){
+  @media(min-width: 1100px){
     h2 {
       font-family: 'Roboto';
       font-weight: 400;
@@ -138,7 +143,7 @@ export const Price = styled.div`
 `
 
 export const ButtonWrapper = styled.div`
-  @media(max-width: 699px){
+  @media(max-width: 1100px){
     width: 162px;
     display: flex;
     flex-direction: column;
@@ -150,7 +155,7 @@ export const ButtonWrapper = styled.div`
     }
   }
   
-  @media(min-width: 700px){
+  @media(min-width: 1100px){
     width: 208px;
     display: flex;
     align-items: center;

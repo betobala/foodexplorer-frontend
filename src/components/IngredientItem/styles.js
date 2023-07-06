@@ -38,10 +38,10 @@ export const Container = styled.div`
     background: transparent;
     border: none;
 
-    @media(max-width: 699px){
+    @media(max-width: 1100px){
       width: 150px;
     }
-    @media(min-width: 700px){
+    @media(min-width: 1100px){
       min-width: 109px;
     }
 
@@ -62,10 +62,10 @@ export const Container = styled.div`
     font-size: 16px;
     line-height: 100%;
 
-    @media(max-width: 699px){
+    @media(max-width: 1100px){
       min-width: 150px;
     }
-    @media(min-width: 700px){
+    @media(min-width: 1100px){
       min-width: 109px;
     }
   }

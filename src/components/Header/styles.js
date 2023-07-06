@@ -72,7 +72,6 @@ export const Desktop = styled.div`
     gap: 32px;
 
   }
-
 `
 
 export const IconButtonWrapper = styled.div`
@@ -87,4 +86,10 @@ export const NewMealButtonWrapper = styled.div`
 
   }
 
+`
+export const InputWrapper = styled.div`
+  width: 524px;
+  @media(max-width: 1250px){
+      display: none;
+  }
 `

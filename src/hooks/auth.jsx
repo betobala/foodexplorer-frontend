@@ -6,6 +6,12 @@ export const AuthContext = createContext({})
 function AuthProvider({ children }) {
   const [data, setData] = useState({})
 
+  async function fetchCartId(){
+    const response =  await api.get("/carts")
+    setCartId(response.data)
+    console.log(response.data)
+  }
+
   function getCookie(k) {
     var cookies = " " + document.cookie;
     var key = " " + k + "=";
@@ -29,13 +35,13 @@ function AuthProvider({ children }) {
 
     document.cookie = k + "=" + v + "; expires=" + d.toUTCString() + "; path=" + path;
   }
+  
 
   async function signIn({ email, password }) {
 
     try {
       const response = await api.post("/sessions", { email, password })
       const { user, token } = response.data
-
 
       setCookie("user", JSON.stringify(user), 18000);
       setCookie("token", token, 18000);
@@ -65,6 +71,8 @@ function AuthProvider({ children }) {
 
     const token = getCookie("token")
     const user = getCookie("user")
+   
+    
 
     if (token && user) {
       api.defaults.headers.common['Authorization'] = `Bearer ${token}`
@@ -72,7 +80,6 @@ function AuthProvider({ children }) {
       setData({
         token,
         user: JSON.parse(user),
-        cart_id: data.cart_id
       })
     }
 
@@ -83,7 +90,6 @@ function AuthProvider({ children }) {
       signIn,
       signOut,
       user: data.user,
-      cart_id: data.cart_id
     }}>
       {children}
     </AuthContext.Provider>

@@ -1,34 +1,40 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
- 
+  position: relative;
+  min-height: 100vh;
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  
   height: 100%;
-  @media(max-width: 699px){
+  @media(max-width: 1100px){
       width: 100%;
     }
 
 `
 
 export const ButtonBack = styled.div`
-  @media(max-width: 699px){
+  
+  @media(max-width: 1100px){
     margin-top: 32px;
     margin-left: 56px;
     margin-bottom: 15px;
 
     button { 
       font-weight: 500;
-      font-size: 24px;
+      font-size: 20px;
       line-height: 34px;
     
       color: ${({ theme }) =>theme.COLORS.LIGHT_300};
     }
+    
+    img {
+      width: 11px;
+    }
   }
-  @media(min-width: 700px){
-    margin: 24px 0 0 124px;
+  @media(min-width: 1100px){
+    margin: 32px 0 0 124px;
 
     button { 
       font-weight: 700;
@@ -41,30 +47,31 @@ export const ButtonBack = styled.div`
 `
 
 export const Content = styled.div`
-  @media(max-width: 699px){
+
+  @media(max-width: 1100px){
     display: flex;
     flex-direction: column;
     gap: 16px;
-    margin: 0 56px 70px;
+    margin: 0 auto 70px;
   }
 
-  @media(min-width: 700px){
+  @media(min-width: 1100px){
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 48px;
-    margin: 42px 121px 150px;
+    margin: 42px 0 150px 15%;
   }
 `
 
 export const Image = styled.div`
-  @media(max-width: 699px){
+  @media(max-width: 1100px){
     align-self: center;
     img {
     width: 264px;
     }
   }
-  @media(min-width: 700px){
+  @media(min-width: 1100px){
     img {
     width: 390px;
     }
@@ -75,7 +82,7 @@ export const Details = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media(max-width: 699px){
+  @media(max-width: 1100px){
     align-items: center;
     h1 {
       text-align: center;
@@ -99,7 +106,7 @@ export const Details = styled.div`
     }
   }
 
-  @media(min-width: 700px){
+  @media(min-width: 1100px){
     h1 {
       text-align: start;
 
@@ -125,14 +132,14 @@ export const Details = styled.div`
 export const Tags = styled.div`
   margin-top: 24px;
 
-  @media(max-width: 699px){
+  @media(max-width: 1100px){
     display: flex;
     align-self: center;
     justify-content: center;
     flex-wrap: wrap;
     gap: 24px;
   }
-  @media(min-width: 700px){
+  @media(min-width: 1100px){
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
@@ -140,7 +147,7 @@ export const Tags = styled.div`
 `
 
 export const ButtonWrapper = styled.div`
-  @media(max-width: 699px){
+  @media(max-width: 1100px){
     margin-top: 40px;
     margin-bottom: 54px;
 
@@ -154,7 +161,7 @@ export const ButtonWrapper = styled.div`
       width: 18px;
     }
   }
-  @media(min-width: 700px){
+  @media(min-width: 1100px){
     margin-top: 40px;
     margin-bottom: 54px;
 

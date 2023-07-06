@@ -38,17 +38,17 @@ export function OrderHistoryAdmin() {
 
       <Title>
         {
-          window.innerWidth >= 700 &&
+          window.innerWidth >= 1100 &&
           <h1>Histórico de pedidos</h1>
         }
         {
-          window.innerWidth <= 699 &&
+          window.innerWidth <= 1099 &&
           <h1>Pedidos</h1>
         }
       </Title>
 
       {
-        window.innerWidth >= 700 &&
+         window.innerWidth >= 1100 &&
         <Desktop>
           <thead>
             <tr>
@@ -85,7 +85,7 @@ export function OrderHistoryAdmin() {
       }
 
       {
-        window.innerWidth <= 699 &&
+        window.innerWidth <= 1099 &&
 
         <Mobile>
           {

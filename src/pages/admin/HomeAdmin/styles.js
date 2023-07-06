@@ -9,7 +9,7 @@ export const HeaderWrapper = styled.div`
   width: 100%;
 `
 export const Slogan = styled.div`
-  @media(max-width: 699px){
+  @media(max-width: 1100px){
     width: 376px;
     height: 120px;
     
@@ -59,7 +59,7 @@ export const Slogan = styled.div`
   }
   }
 
-  @media(min-width: 700px){
+  @media(min-width: 1100px){
     display: flex;
     align-items: center;
     height: 260px;
@@ -114,12 +114,12 @@ export const Meals = styled.div`
   align-items: center;
   overflow-x: hidden;
   
-  @media(max-width: 699px){
+  @media(max-width: 1100px){
     gap: 20px;
     margin: 0 24px 24px
   }
 
-  @media(min-width: 700px){
+  @media(min-width: 1100px){
     margin: 0 123px 46px;
     gap: 55px;
     
@@ -128,7 +128,7 @@ export const Meals = styled.div`
 `
 export const Section = styled.div`
 
-  @media(max-width: 699px){
+  @media(max-width: 1100px){
     margin: 0 24px;
 
     h2 {
@@ -139,7 +139,7 @@ export const Section = styled.div`
     }
   }
 
-  @media(min-width: 700px){
+  @media(min-width: 1100px){
     margin: 0 123px;
 
     h2{
@@ -159,10 +159,10 @@ export const ControllerBoxLeft = styled.div`
   align-items: center;
   position: relative;
 
-  /* @media(max-width: 699px){
+  /* @media(max-width: 1100px){
     margin-right: -70px;
   }
-  @media(min-width: 700px){
+  @media(min-width: 1100px){
     margin-right: -90px;
   } */
   
@@ -172,18 +172,18 @@ export const ControllerBoxRight = styled.div`
   justify-content: center;  
   position: relative;
   
-  /* @media(max-width: 699px){
+  /* @media(max-width: 1100px){
     margin-left: -35px;
   }
-  @media(min-width: 700px){
+  @media(min-width: 1100px){
     margin-left: -120px;
   } */
 `
 export const FooterSection = styled.div`
-  @media(max-width: 699px){
+  @media(max-width: 1100px){
     padding-bottom: 90px;
   }
-  @media(min-width: 700px){
+  @media(min-width: 1100px){
     padding-bottom: 150px;
   }
 `

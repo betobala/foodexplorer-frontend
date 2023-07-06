@@ -4,19 +4,20 @@ import { Footer } from "../../../components/Footer"
 import { useEffect, useState } from "react"
 import { api } from "../../../services/api"
 import moment from "moment/moment"
+import { FooterSection } from "../../../components/FooterSection"
 
 
 
 export function OrderHistory() {
   const [userOrders, setUserOrders] = useState([])
 
-  
-  function statusColor(status){
-    if(status === "Pendente")
+
+  function statusColor(status) {
+    if (status === "Pendente")
       return "#AB222E"
-    if(status === "Preparando")
+    if (status === "Preparando")
       return "#FBA94C"
-    if(status === "Entregue")
+    if (status === "Entregue")
       return "#04D361"
   }
 
@@ -35,29 +36,31 @@ export function OrderHistory() {
 
       <Title>
         {
-          window.innerWidth >= 700 &&
+          window.innerWidth >= 1100 &&
           <h1>Histórico de pedidos</h1>
         }
         {
-          window.innerWidth <= 699 &&
+          window.innerWidth <= 1099 &&
           <h1>Pedidos</h1>
         }
       </Title>
 
       {
-        window.innerWidth >= 700 &&
+        window.innerWidth >= 1100 &&
         <Desktop>
           <thead>
-            <th>Status</th>
-            <th>Código</th>
-            <th>Detalhamento</th>
-            <th>Data e hora</th>
+            <tr>
+              <th>Status</th>
+              <th>Código</th>
+              <th>Detalhamento</th>
+              <th>Data e hora</th>
+            </tr>
           </thead>
           <tbody>
 
             {
               userOrders.map((order) => (
-                <tr key={order.id}>
+                <tr key={order.order_id}>
                   <StatusElipse>
                     <svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <circle cx="4" cy="4" r="4" transform="matrix(1 0 0 -1 0 8.57812)" fill={statusColor(order.status)} />
@@ -66,8 +69,8 @@ export function OrderHistory() {
                     <span>{order.status}</span>
                   </StatusElipse>
                   <td>{String(order.order_id).padStart(8, "0")}</td>
-                  <td>{order.products.map((product) => 
-                    <span>{`${product.number_of_products}x ${product.name}   `}</span>
+                  <td>{order.products.map((product, index) =>
+                    <span key={index}>{`${product.number_of_products}x ${product.name}   `}</span>
                   )}
                   </td>
                   <td>{moment(`${order.date}+00:00`).format("DD/MM HH:mm")}</td>
@@ -79,7 +82,7 @@ export function OrderHistory() {
       }
 
       {
-        window.innerWidth <= 699 &&
+        window.innerWidth <= 1099 &&
 
         <Mobile>
           {
@@ -94,9 +97,9 @@ export function OrderHistory() {
                   <span>{order.status}</span>
                 </StatusElipse>
                 <span>{moment(`${order.date}+00:00`).format("DD/MM HH:mm")}</span>
-                <span>{order.products.map((product) => 
-                    <span>{`${product.number_of_products}x ${product.name}   `}</span>
-                  )}</span>
+                <span>{order.products.map((product) =>
+                  <span>{`${product.number_of_products}x ${product.name}   `}</span>
+                )}</span>
               </Card>
             ))
           }
@@ -104,7 +107,7 @@ export function OrderHistory() {
         </Mobile>
       }
 
-
+      <FooterSection />
       <Footer />
     </Container>
   )

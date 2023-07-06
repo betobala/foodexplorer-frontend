@@ -1,4 +1,4 @@
-import { Container, Mobile, Desktop, LogoWrapper, IconButtonWrapper, NewMealButtonWrapper } from "./styles";
+import { Container, Mobile, Desktop, LogoWrapper, IconButtonWrapper, NewMealButtonWrapper, InputWrapper } from "./styles";
 import { IconButton } from "../IconButton"
 import { Button } from "../Button";
 import { RequestButton_mobile } from "../RequestButton_mobile";
@@ -96,10 +96,13 @@ export function Header({ isAdmin = false }) {
           {isAdmin ? <Logo isAdmin /> : <Logo />}
         </LogoWrapper>
 
-        <Input
-          placeholder="Busque por pratos ou ingredientes"
-          isSearch
-        />
+        <InputWrapper>
+          <Input
+            placeholder="Busque por pratos ou ingredientes"
+            isSearch
+          />
+        </InputWrapper>
+
         {isAdmin
           ? <>
             <nav>

@@ -29,8 +29,6 @@ export const Container = styled.div`
     }
   }
 
-  img {
-    padding-left: 15px;
-  }
+  
 
 `

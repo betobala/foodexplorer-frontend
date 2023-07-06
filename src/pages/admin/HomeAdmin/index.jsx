@@ -26,7 +26,7 @@ export function HomeAdmin() {
   }, []);
 
   useEffect(() => {
-    window.innerWidth >= 700 ? setCarouselSize(4) : setCarouselSize(2);
+    window.innerWidth >= 1100 ? setCarouselSize(4) : setCarouselSize(2);
   }, [carouselSize])
 
   return (

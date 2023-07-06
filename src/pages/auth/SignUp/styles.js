@@ -57,7 +57,7 @@ export const LogoWrapper = styled.div`
   img {
     width: 43px;
   }
- @media(max-width: 699px) {
+ @media(max-width: 1100px) {
     h1 {
       font-weight: 700;
       font-size: 37px;
@@ -65,7 +65,7 @@ export const LogoWrapper = styled.div`
     }
  }
 
-  @media(min-width: 700px) {
+  @media(min-width: 1100px) {
     position: relative;
     bottom: 105px;
 

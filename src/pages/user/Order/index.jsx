@@ -92,7 +92,7 @@ export function Order() {
   }
 
   useEffect(() => {
-    window.innerWidth >= 700 ? setMobileState("desktop") : setMobileState("products")
+    window.innerWidth >= 1100 ? setMobileState("desktop") : setMobileState("products")
 
   }, [window.innerWidth])
 

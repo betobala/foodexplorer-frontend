@@ -2,7 +2,9 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   margin: 0 auto;
-  width: 428px;
+  width: 100%;
+  position: relative;
+  min-height: 100vh;
 `
 export const HeaderMenu = styled.div`
   height: 114px;
@@ -20,18 +22,20 @@ export const HeaderMenu = styled.div`
   }
 
   span {
-    font-family: 'Roboto';
+    color: var(--light-light-100, #FFF);
+    font-family: Roboto;
+    font-size: 21.163px;
     font-style: normal;
     font-weight: 400;
-    font-size: 21px;
-    line-height: 25px;
+    line-height: normal;
 
     margin: 56px 28px 24px 0px;
   }
 `
 
 export const InputWrapper = styled.div`
-  margin: 36px 28px;
+  margin: 36px 32px;
+  
 `
 
 export const Content = styled.div`
@@ -42,15 +46,18 @@ export const ButtonWrapper = styled.div`
   button {
       display: flex;
 
-      width: 372px;
-      margin: 0 28px;
+      width: 80%;
+      margin: 0 32px;
 
       padding: 10px;
       
 
-      font-weight: 300;
+      color: var(--light-light-300, #E1E1E6);
+      font-family: Poppins;
       font-size: 24px;
-      line-height: 34px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 140%;
       
 
       color: ${({ theme }) => theme.COLORS.LIGHT_300};

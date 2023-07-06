@@ -112,9 +112,11 @@ export const Meals = styled.div`
   
   display: flex;
   align-items: center;
+  margin-bottom: 47px;
   
   @media(max-width: 1099px){
     overflow-x: auto;
+    margin-bottom: 24px;
   }
 
 `
@@ -123,6 +125,7 @@ export const Section = styled.div`
   @media(max-width: 1099px){
     h2 {
       font-weight: 500;
+      font-style: normal;
       font-size: 18px;
       line-height: 25px;
       color: ${({ theme }) => theme.COLORS.LIGHT_300};
@@ -138,7 +141,7 @@ export const Section = styled.div`
       font-size: 32px;
       line-height: 140%;
       color: ${({ theme }) => theme.COLORS.LIGHT_300};
-
+      font-family: Poppins;
     }
   }
 `
@@ -149,14 +152,7 @@ export const ControllerBoxLeft = styled.div`
 export const ControllerBoxRight = styled.div`
   position: relative;
 `
-export const FooterSection = styled.div`
-  @media(max-width: 1099px){
-    padding-bottom: 90px;
-  }
-  @media(min-width: 700px){
-    padding-bottom: 150px;
-  }
-`
+
 export const Desktop = styled.div`
   @media(max-width: 1099px){
     display: none;
@@ -165,7 +161,6 @@ export const Desktop = styled.div`
 `
 
 export const Mobile = styled.div`
-
 @media(min-width: 1100px){
     display: none;
   }

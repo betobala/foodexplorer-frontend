@@ -2,7 +2,6 @@ import { Container, FavoriteIcon, PencilIcon, ItemName, Description, Price, Item
 import { IconButton } from "../IconButton";
 import { Stepper } from "../Stepper"
 import { Button } from "../Button";
-import CaretRight from "../..//assets/icons/CaretRight.svg"
 import FavoritedIcon from "../../assets/icons/HeartFilled.svg"
 import notFavoritedIcon from "../../assets/icons/Heart.svg"
 import Pencil from "../../assets/icons/Pencil.svg"

@@ -13,7 +13,7 @@ export const Container = styled.div`
   padding: 24px 28px;
   height: 77px;
 
-  @media(min-width: 700px){
+  @media(min-width: 1100px){
     padding: 24px 123px;
   }
 
@@ -22,7 +22,7 @@ export const Container = styled.div`
   img {
     width: 18px;
 
-    @media(min-width: 700px){
+    @media(min-width: 1100px){
     width: 30px;
   }
   }
@@ -35,7 +35,7 @@ export const Container = styled.div`
     line-height: 18px;
     color: ${({ theme }) => theme.COLORS.LIGHT_700};
     
-    @media(min-width: 700px){
+    @media(min-width: 1100px){
       font-size: 24px;
       line-height: 28px;
       color: ${({ theme }) => theme.COLORS.LIGHT_700};
@@ -54,4 +54,13 @@ export const Container = styled.div`
   }
 
 
+`
+
+export const FooterSection = styled.div`
+  @media(max-width: 1099px){
+    padding-bottom: 90px;
+  }
+  @media(min-width: 1100px){
+    padding-bottom: 150px;
+  }
 `

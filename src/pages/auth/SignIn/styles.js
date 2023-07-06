@@ -57,7 +57,7 @@ export const LogoWrapper = styled.div`
     width: 43px;
   }
 
-  @media(max-width: 699px) {
+  @media(max-width: 1100px) {
     h1 {
       font-weight: 700;
       font-size: 37px;

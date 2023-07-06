@@ -15,7 +15,7 @@ import { useAuth } from "../../../hooks/auth"
 
 export function MealDetails() {
   const { meal_id } = useParams();
-  const { cart_id } = useAuth()
+  const { user } = useAuth()
   const [meal, setMeal] = useState({})
   const [mealPriceInReais, setMealPriceInReais] = useState()
   const [quantity, setQuantity] = useState(1)
@@ -103,13 +103,13 @@ export function MealDetails() {
             window.innerWidth > 699 ? 
                                     <Button 
                                       title={`incluir - ${mealPriceInReais}`}
-                                      onClick={() => handleAddToCart(cart_id, meal_id)}
+                                      onClick={() => handleAddToCart(user.cart_id, meal_id)}
                                     />
                                     :
                                     // {`pedir ${meal.price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}`}
                                     <Button 
                                       title={`pedir ${mealPriceInReais}`}
-                                      onClick={() => handleAddToCart(cart_id, meal_id)}
+                                      onClick={() => handleAddToCart(user.cart_id, meal_id)}
                                       icon={ReceiptIcon}
                                     />
             } 

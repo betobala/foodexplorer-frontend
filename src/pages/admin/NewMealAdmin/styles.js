@@ -4,13 +4,13 @@ export const Container = styled.div`
   span {
     color: ${({ theme }) => theme.COLORS.LIGHT_400};
   }
-  @media(max-width: 699px){
+  @media(max-width: 1100px){
     max-width: 428px;
   }
 
 `
 export const Heading = styled.div`
-    @media(max-width: 699px){
+    @media(max-width: 1100px){
       margin: 12px 32px 0;
   
       h1 {
@@ -28,7 +28,7 @@ export const Heading = styled.div`
       }
     }
   
-    @media(min-width: 700px){
+    @media(min-width: 1100px){
       margin: 12px 123px 0;
   
       h1 {
@@ -50,7 +50,7 @@ export const Heading = styled.div`
     }
 `
 export const Hero = styled.form`
-  @media(max-width: 699px){
+  @media(max-width: 1100px){
     margin: 0 32px;
 
     display: flex;
@@ -80,7 +80,7 @@ export const Hero = styled.form`
     }
   }
 
-  @media(min-width: 700px){
+  @media(min-width: 1100px){
     margin: 0 123px;
 
     display: grid;
@@ -110,7 +110,7 @@ export const ButtonWrapper = styled.div`
 
     margin-bottom: 53px;
     
-    @media(max-width: 699px){
+    @media(max-width: 1100px){
       width: 100%;
     }
   }
@@ -240,7 +240,7 @@ export const Items = styled.div`
   border-radius: 8px;
   background-color: ${({ theme }) => theme.COLORS.DARK_900};
 
-  @media(max-width: 699px){
+  @media(max-width: 1100px){
     input {
       width: 125px;
     }

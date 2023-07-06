@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
 
-@media(max-width: 699px){
+@media(max-width: 1100px){
     width: 428px;
 
   }
@@ -10,7 +10,7 @@ export const Container = styled.div`
 `
 
 export const ButtonBack = styled.div`
-  @media(max-width: 699px){
+  @media(max-width: 1100px){
     margin-top: 32px;
     margin-left: 56px;
 
@@ -22,7 +22,7 @@ export const ButtonBack = styled.div`
       color: ${({ theme }) =>theme.COLORS.LIGHT_300};
     }
   }
-  @media(min-width: 700px){
+  @media(min-width: 1100px){
     margin: 24px 0 0 124px;
 
     button { 
@@ -36,14 +36,14 @@ export const ButtonBack = styled.div`
 `
 
 export const Content = styled.div`
-  @media(max-width: 699px){
+  @media(max-width: 1100px){
     display: flex;
     flex-direction: column;
     gap: 16px;
     margin: 0 56px;
   }
 
-  @media(min-width: 700px){
+  @media(min-width: 1100px){
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -53,13 +53,13 @@ export const Content = styled.div`
 `
 
 export const Image = styled.div`
-  @media(max-width: 699px){
+  @media(max-width: 1100px){
     align-self: center;
     img {
     width: 264px;
     }
   }
-  @media(min-width: 700px){
+  @media(min-width: 1100px){
     img {
     width: 390px;
     }
@@ -70,7 +70,7 @@ export const Details = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media(max-width: 699px){
+  @media(max-width: 1100px){
     align-items: center;
     h1 {
       text-align: center;
@@ -94,7 +94,7 @@ export const Details = styled.div`
     }
   }
 
-  @media(min-width: 700px){
+  @media(min-width: 1100px){
     h1 {
       text-align: start;
 
@@ -120,14 +120,14 @@ export const Details = styled.div`
 export const Tags = styled.div`
   margin-top: 24px;
 
-  @media(max-width: 699px){
+  @media(max-width: 1100px){
     display: flex;
     align-self: center;
     justify-content: center;
     flex-wrap: wrap;
     gap: 24px;
   }
-  @media(min-width: 700px){
+  @media(min-width: 1100px){
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
@@ -135,7 +135,7 @@ export const Tags = styled.div`
 `
 
 export const ButtonWrapper = styled.div`
-  @media(max-width: 699px){
+  @media(max-width: 1100px){
     margin-top: 48px;
     margin-bottom: 54px;
 
@@ -150,7 +150,7 @@ export const ButtonWrapper = styled.div`
     }
   }
 
-  @media(min-width: 700px){
+  @media(min-width: 1100px){
     margin-top: 48px;
     margin-bottom: 54px;
 
