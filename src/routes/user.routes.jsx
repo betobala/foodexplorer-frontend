@@ -6,6 +6,7 @@ import { Menu } from "../pages/user/Menu"
 import { Favorites } from "../pages/user/Favorites"
 import { Order } from "../pages/user/Order"
 import { OrderHistory } from "../pages/user/OrderHistory";
+import { SearchResults } from "../pages/user/SearchResults";
 
 export function UserRoutes(){
   return(
@@ -16,6 +17,7 @@ export function UserRoutes(){
       <Route path="/favorites" element={<Favorites />} />
       <Route path="/order" element={<Order />} />
       <Route path="/history" element={<OrderHistory />} />
+      <Route path="/search" element={<SearchResults />} />
 
     </Routes>
   )

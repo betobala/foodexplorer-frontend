@@ -14,6 +14,7 @@ import { CurrencyInput } from 'react-currency-mask';
 
 
 import { api } from "../../../services/api"
+import { FooterSection } from "../../../components/FooterSection"
 
 export function NewMealAdmin() {
   const [isButtonDisable, setIsButtonDisable] = useState(false)
@@ -214,6 +215,8 @@ export function NewMealAdmin() {
           />
         </ButtonWrapper>
       </Hero>
+
+      <FooterSection />
 
       <Footer />
 

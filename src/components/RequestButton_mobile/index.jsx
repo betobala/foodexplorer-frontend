@@ -9,7 +9,7 @@ export function RequestButton_mobile({ requests = null }) {
     >
       <img src={RequestIcon} />
       {
-        requests &&
+        requests != null &&
         <span>{requests}</span>
       }
     </Container>

@@ -1,8 +1,11 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 export const Container = styled.div`
   position: relative;
   min-height: 100vh;
+
+  
 `
 export const HeaderWrapper = styled.div`
   width: 100%;
@@ -62,8 +65,7 @@ export const Slogan = styled.div`
     display: flex;
     align-items: center;
     height: 260px;
-    
-    
+  
     margin: 164px 124px 62px;
 
     border-radius: 8px;
@@ -71,6 +73,7 @@ export const Slogan = styled.div`
     display: flex;
 
     background: ${({ theme }) => theme.COLORS.GRADIENT_200};
+    
 
     img {
       width: 632px;
@@ -88,6 +91,7 @@ export const Slogan = styled.div`
       flex-direction: column;
       align-items: center;
       gap: 8px;
+    
 
       h1 {
       font-family: 'Poppins';
@@ -108,19 +112,21 @@ export const Slogan = styled.div`
     }
     }
 `
-export const Meals = styled.div`
+export const Meals = styled(motion.div)`
   
   display: flex;
   align-items: center;
   margin-bottom: 47px;
   
+  
   @media(max-width: 1099px){
     overflow-x: auto;
     margin-bottom: 24px;
   }
+  
 
 `
-export const Section = styled.div`
+export const Section = styled(motion.div)`
 
   @media(max-width: 1099px){
     h2 {
@@ -144,6 +150,7 @@ export const Section = styled.div`
       font-family: Poppins;
     }
   }
+
 `
 export const ControllerBoxLeft = styled.div`
   position: relative;
@@ -158,6 +165,7 @@ export const Desktop = styled.div`
     display: none;
   }
   margin: 0 124px;
+
 `
 
 export const Mobile = styled.div`
@@ -169,4 +177,7 @@ export const Mobile = styled.div`
     margin: 0 72px;
   }
   margin: 0 24px;
+`
+
+export const ItemWrapper = styled(motion.div)`
 `

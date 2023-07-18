@@ -4,12 +4,11 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100vw;
 
-  
-
   background-color: ${({ theme }) => theme.COLORS.DARK_700};
 `
 
 export const LogoWrapper = styled(Link)`
+
   @media(max-width: 1099px){
     img {
       width: 24px;
@@ -46,6 +45,10 @@ export const Mobile = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 56px 28px 24px;
+
+  .holder{
+    color: transparent;
+  }
 `
 export const Desktop = styled.div`
   @media(max-width: 1099px){

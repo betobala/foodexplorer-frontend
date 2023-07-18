@@ -25,13 +25,8 @@ export function MealDetails() {
   function handleBack(){
     navigate(-1)
   }
-  function handleEditMeal(){
-    navigate(`/edit/${meal_id}`)
-  }
-
   async function handleAddToCart(cart_id, meal_id){
     try {
-      console.log(cart_id)
       await api.post(`/carts/${cart_id}`, {
         meal_id,
         price: meal.price,
@@ -39,7 +34,7 @@ export function MealDetails() {
       })
 
       alert("Item adcionado ao carrinho.")
-      handleBack()
+      navigate("/")
       
     } catch (error) {
       

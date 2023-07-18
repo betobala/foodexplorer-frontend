@@ -4,9 +4,24 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   
-
   position: relative;
   min-height: 100vh;
+
+  .products {
+    
+    .comma {
+      margin-right: 5px;
+    }
+    div {
+      display: inline;
+    }
+
+    div:last-child {
+      span:last-child {
+      display: none;
+      }
+    }
+  }
 
 `
 export const Title = styled.div`
@@ -147,8 +162,9 @@ export const Mobile = styled.div`
 export const Card = styled.div`
   width: 85%;
   display: grid;
-  grid-template-areas: "code status date"
-                       "products products products";
+  grid-template-areas: "code date date"
+                       "products products products"
+                       "status status status";
                        
   border-radius: 12px;
   grid-row-gap: 16px;
@@ -173,14 +189,32 @@ export const Card = styled.div`
     grid-area: code;
   }
   span:nth-child(2) {
-    grid-area: status;
-  }
-  span:nth-child(3) {
     grid-area: date;
   }
-  span:nth-child(4) {
+  span:nth-child(3) {
     grid-area: products;
   }
+
+  .status {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    
+    input {
+      width: 100%;
+    }
+    
+    gap: 5px;
+    grid-area: status;
+  }
+  
+`
+export const StatusElipseMobile = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: left;
+  gap: 8px;
 `
 export const StatusElipse = styled.td`
   display: flex;
@@ -188,7 +222,4 @@ export const StatusElipse = styled.td`
   align-items: baseline;
   justify-content: left;
   gap: 8px;
-  
- 
-
 `

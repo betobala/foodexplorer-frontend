@@ -9,6 +9,7 @@ import MealImage from "../../../assets/images/name=ravanello, size=400.png"
 import { useNavigate, useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { api } from "../../../services/api"
+import { FooterSection } from "../../../components/FooterSection"
 
 
 export function MealDetailsAdmin() {
@@ -75,6 +76,7 @@ export function MealDetailsAdmin() {
 
       </Content>
 
+      <FooterSection />
       <Footer />
     </Container>
   )

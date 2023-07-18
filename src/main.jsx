@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { ThemeProvider } from 'styled-components'
 import GlobalStyles from './styles/global'
 
-import { AuthProvider } from './hooks/auth'
+import AppProvider from './hooks/index'
 
 import theme from './styles/theme'
 
@@ -14,8 +14,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
    <ThemeProvider theme={theme}>
       <GlobalStyles />
-        <AuthProvider>
+        <AppProvider>
           <Routes /> 
-        </AuthProvider>
+        </AppProvider>
     </ThemeProvider>
 )

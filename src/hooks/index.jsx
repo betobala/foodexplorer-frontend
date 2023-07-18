@@ -7,6 +7,7 @@ return(
   <AuthProvider>
     <SearchProvider>{children}</SearchProvider>
   </AuthProvider>
+  
   )
 }
 

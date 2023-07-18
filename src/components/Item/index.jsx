@@ -9,18 +9,16 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/auth";
 import { api } from "../../services/api";
+import { motion } from "framer-motion"
 
 
 
 export function Item({ title, description, image: Image, price, isAdmin = false, id }) {
   const [favorited, setFavorited] = useState()
   const [quantity, setQuantity] = useState(1)
-  const [meal, setMeal] = useState({})
   const [cartId, setCartId] = useState()
   const navigate = useNavigate()
   const { user } = useAuth()
-
-
 
   function toogleFavorite() {
 
@@ -45,10 +43,11 @@ export function Item({ title, description, image: Image, price, isAdmin = false,
   }
 
   async function handleAddToCart(cart_id, meal_id) {
+
     try {
       await api.post(`/carts/${cart_id}`, {
         meal_id,
-        price: meal.price,
+        price,
         number_of_products: quantity
       })
 
@@ -85,40 +84,47 @@ export function Item({ title, description, image: Image, price, isAdmin = false,
     isThisMealFavorited(user.id, id)
   }, [])
 
-  useEffect(() => {
-    async function fetchMeal(meal_id) {
-      const response = await api.get(`/meals/${meal_id}`)
-      setMeal(response.data)
-    }
-
-    fetchMeal(id)
-  }, [])
-
   return (
     <Container>
 
       {
         isAdmin
           ? <PencilIcon>
-            <IconButton
-              onClick={() => handleEdit(id)}
-              icon={Pencil}
-            />
+            <motion.div
+              whileTap={{ scale: 1.1 }}
+            >
+              <IconButton
+                onClick={() => handleEdit(id)}
+                icon={Pencil}
+              />
+            </motion.div>
           </PencilIcon>
 
           : <FavoriteIcon>
 
             {favorited
               ?
-              <IconButton
-                icon={FavoritedIcon}
-                onClick={() => toogleFavorite()}
-              />
+              <>
+                <motion.div
+                  whileTap={{ scale: 1.1 }}
+                >
+                  <IconButton
+                    icon={FavoritedIcon}
+                    onClick={() => toogleFavorite()}
+                  />
+                </motion.div>
+              </>
               :
-              <IconButton
-                icon={notFavoritedIcon}
-                onClick={() => toogleFavorite()}
-              />
+              <>
+                <motion.div
+                  whileTap={{ scale: 1.1 }}
+                >
+                  <IconButton
+                    icon={notFavoritedIcon}
+                    onClick={() => toogleFavorite()}
+                  />
+                </motion.div>
+              </>
             }
           </FavoriteIcon>
       }

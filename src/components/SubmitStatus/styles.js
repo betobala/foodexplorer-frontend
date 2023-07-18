@@ -6,6 +6,13 @@ export const Container = styled.div`
   flex-direction: column;
   gap: 16px;
 
+  @media(max-width: 1099px){
+    flex-direction: row;
+    button {
+      padding: 0 10px;
+    }
+  }
+
   select {
       width: 100%;
       display: flex;

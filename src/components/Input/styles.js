@@ -29,6 +29,12 @@ export const Container = styled.div`
     }
   }
 
+  > button {
+    text-decoration: none;
+    background: transparent;
+    border: none;
+  }
+
   
 
 `

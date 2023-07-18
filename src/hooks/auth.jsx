@@ -9,7 +9,6 @@ function AuthProvider({ children }) {
   async function fetchCartId(){
     const response =  await api.get("/carts")
     setCartId(response.data)
-    console.log(response.data)
   }
 
   function getCookie(k) {
@@ -67,13 +66,12 @@ function AuthProvider({ children }) {
     setData({})
   }
 
+
   useEffect(() => {
 
     const token = getCookie("token")
     const user = getCookie("user")
-   
-    
-
+ 
     if (token && user) {
       api.defaults.headers.common['Authorization'] = `Bearer ${token}`
 

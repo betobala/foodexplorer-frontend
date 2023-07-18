@@ -1,11 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  position: relative;
+  min-height: 100vh;
   span {
     color: ${({ theme }) => theme.COLORS.LIGHT_400};
   }
   @media(max-width: 1100px){
-    max-width: 428px;
+    width: 100%;
   }
 
 `
@@ -50,6 +52,7 @@ export const Heading = styled.div`
     }
 `
 export const Hero = styled.form`
+ 
   @media(max-width: 1100px){
     margin: 0 32px;
 

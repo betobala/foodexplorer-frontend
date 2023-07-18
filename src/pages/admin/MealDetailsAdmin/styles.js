@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+position: relative;
+  min-height: 100vh;
 
 @media(max-width: 1100px){
-    width: 428px;
-
+    width: 100%;
   }
 
 `
@@ -48,7 +49,9 @@ export const Content = styled.div`
     flex-direction: row;
     align-items: center;
     gap: 48px;
-    margin: 42px 121px;
+    margin: 42px 0;
+    margin-left: 13%;
+    margin-right: 13%;
   }
 `
 

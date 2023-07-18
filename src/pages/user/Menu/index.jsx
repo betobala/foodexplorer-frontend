@@ -8,12 +8,14 @@ import { useNavigate } from "react-router-dom"
 import { useAuth } from "../../../hooks/auth"
 import { useEffect, useState } from "react"
 import { api } from "../../../services/api"
+import { useSearch } from "../../../hooks/search"
 
 export function Menu({ isAdmin = false }) {
   const { signOut } = useAuth()
   const { user } = useAuth()
   const navigate = useNavigate()
   const [totalOfProducts, setTotalOfProducts] = useState(0)
+
 
   async function fetchTotalOfProducts(cart_id) {
     const response = await api.get(`/carts/${cart_id}`)
@@ -43,6 +45,7 @@ export function Menu({ isAdmin = false }) {
   function handleOpenOrder(){
     navigate("/order")
   }
+
 
   useEffect(()=>{
     fetchTotalOfProducts(user.cart_id)

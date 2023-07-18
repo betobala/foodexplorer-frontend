@@ -1,5 +1,4 @@
-import { Container, Slogan, Section, HeaderWrapper, Meals, ControllerBoxLeft, ControllerBoxRight, Desktop, Mobile } from "./styles"
-import SloganImage from "../../../assets/images/macaronPNG.png"
+import { Container, Section, HeaderWrapper, Meals, ControllerBoxLeft, ControllerBoxRight, Desktop, Mobile, Results } from "./styles"
 import { Header } from "../../../components/Header"
 import { Item } from "../../../components/Item"
 import { Footer } from "../../../components/Footer"
@@ -7,18 +6,17 @@ import { FooterSection } from "../../../components/FooterSection"
 import Carousel, { Controller } from "@jjunyjjuny/react-carousel";
 import { useState, useEffect } from "react"
 import { api } from "../../../services/api"
-import { stagger, motion } from "framer-motion"
-import { duration } from "moment/moment"
+import { useSearch } from "../../../hooks/search"
+import { motion } from "framer-motion"
 
 
-export function Home() {
-  const [meals, setMeals] = useState([])
+export function SearchResults() {
   const [carouselSize, setCarouselSize] = useState()
   const [categoryMeal, setCategoryMeal] = useState([])
   const [categoryDessert, setCategoryDessert] = useState([])
   const [categoryDrink, setCategoryDrink] = useState([])
 
-
+  const { meals, searchName } = useSearch()
 
   function setCarouselSizeByWindowWidth() {
     if (window.innerWidth <= 1280) {
@@ -37,15 +35,13 @@ export function Home() {
 
   useEffect(() => {
     async function fetchMeals() {
-      const response = await api.get("/meals?name&ingredients");
-      setMeals(response.data);
-      setCategoryMeal((response.data).filter(meal => (meal.category == "meal")))
-      setCategoryDessert((response.data).filter(meal => (meal.category == "dessert")))
-      setCategoryDrink((response.data).filter(meal => (meal.category == "drink")))
+      setCategoryMeal((meals).filter(meal => (meal.category == "meal")))
+      setCategoryDessert((meals).filter(meal => (meal.category == "dessert")))
+      setCategoryDrink((meals).filter(meal => (meal.category == "drink")))
     }
 
     fetchMeals();
-  }, []);
+  }, [meals]);
 
   useEffect(() => {
     setCarouselSizeByWindowWidth()
@@ -58,25 +54,16 @@ export function Home() {
         <Header />
       </HeaderWrapper>
 
-      <Slogan>
-        <motion.img 
-          initial={{opacity:0, x: -300}}
-          animate={{opacity:1, x: 0}}
-          transition={{duration: 0.9}}
-          src={SloganImage} 
-        />
-        <motion.div 
-          className="slogantext"
-          initial={{opacity:0, x: -200}}
-          animate={{opacity:1, x: 0}}
-          transition={{duration: 0.9}}
-        >
-          <h1>Sabores inigualáveis</h1>
-          <p>Sinta o cuidado do preparo com ingredientes selecionados.</p>
-        </motion.div>
-      </Slogan>
-
       <Desktop>
+        {meals.length > 0  ?
+          <Results>
+            <h1>{`Resultados encontrados por: ${searchName}`}</h1>
+          </Results>
+          :
+          <Results>
+             <h1>{`Nenhum resultado encontrado por: ${searchName}`}</h1>
+          </Results>
+        }
         {categoryMeal.length > 0 &&
           <>
             <Section>
@@ -246,9 +233,20 @@ export function Home() {
             </Meals>
           </>
         }
+
       </Desktop>
 
+
       <Mobile>
+        {meals.length > 0  ?
+          <Results>
+            <h1>{`Resultados encontrados por: ${searchName}`}</h1>
+          </Results>
+          :
+          <Results>
+            <h1>{`Nenhum resultado encontrado por: ${searchName}`}</h1>
+          </Results>
+        }
         {
           categoryMeal.length > 0 &&
           <>

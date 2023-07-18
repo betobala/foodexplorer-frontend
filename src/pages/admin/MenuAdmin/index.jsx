@@ -21,6 +21,9 @@ export function MenuAdmin() {
     navigate("/")
     signOut()
   }
+  function handleOpenOrdersHistoryAdmin(){
+    navigate("/history")
+  }
 
   return(
     <Container>
@@ -31,11 +34,25 @@ export function MenuAdmin() {
         />
         <span>Menu</span>
       </HeaderMenu>
+      
+      <InputWrapper>
+        <Input
+        isSearch
+        placeholder="Busque por pratos ou ingredientes"
+        />
+      </InputWrapper>
 
       <ButtonWrapper>
         <ButtonText
          title="Novo Prato"
          onClick={() => handleOpenNewMeal()}
+        />
+      </ButtonWrapper>
+
+      <ButtonWrapper>
+        <ButtonText
+         title="Pedidos"
+         onClick={() => handleOpenOrdersHistoryAdmin()}
         />
       </ButtonWrapper>
       

@@ -8,6 +8,22 @@ export const Container = styled.div`
   position: relative;
   min-height: 100vh;
 
+  .products {
+    
+    .comma {
+      margin-right: 5px;
+    }
+    div {
+      display: inline;
+    }
+
+    div:last-child {
+      span:last-child {
+      display: none;
+      }
+    }
+  }
+
 `
 export const Title = styled.div`
 
@@ -182,13 +198,15 @@ export const Card = styled.div`
     grid-area: products;
   }
 `
-export const StatusElipse = styled.td`
+export const StatusElipseMobile = styled.div`
   display: flex;
   flex-direction: row;
   align-items: baseline;
   justify-content: left;
   gap: 8px;
-  
- 
-
+`
+export const StatusElipse = styled.td`
+  span {
+    margin-left: 8px;
+  }
 `

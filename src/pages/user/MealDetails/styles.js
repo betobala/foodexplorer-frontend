@@ -60,7 +60,7 @@ export const Content = styled.div`
     flex-direction: row;
     align-items: center;
     gap: 48px;
-    margin: 42px 0 150px 15%;
+    margin: 42px 13% 150px 13%;
   }
 `
 

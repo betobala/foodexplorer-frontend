@@ -12,12 +12,14 @@ import { useNavigate } from "react-router-dom";
 import { ButtonText } from "../ButtonText";
 import { useEffect, useState } from "react";
 import { api } from "../../services/api";
+import { useSearch } from "../../hooks/search";
 
 export function Header({ isAdmin = false }) {
   const { signOut } = useAuth()
   const navigation = useNavigate()
   const [cartId, setCartId] = useState()
   const [totalOfProducts, setTotalOfProducts] = useState(0)
+
 
   function handleSignOut() {
     navigation("/")
@@ -41,8 +43,6 @@ export function Header({ isAdmin = false }) {
   function handleOpenOrderHistory() {
     navigation("/history")
   }
-
-
   async function fetchTotalOfProducts(cart_id) {
     const response = await api.get(`/carts/${cart_id}`)
 
@@ -77,12 +77,12 @@ export function Header({ isAdmin = false }) {
         </IconButtonWrapper>
 
         <LogoWrapper to="/">
-          {isAdmin ? <Logo isAdmin /> : <Logo />}
+          {isAdmin ? <Logo isAdmin />: <Logo />}
         </LogoWrapper>
 
         {
           isAdmin
-            ? <></>
+            ? <div className="holder">.</div>
             : <RequestButton_mobile
               onClick={() => handleOpenOrder()}
               requests={totalOfProducts}

@@ -1,30 +1,40 @@
-import { createContext, useContext, useState, useEffect } from "react"
+import { createContext, useContext, useState } from "react"
 import { api } from "../services/api"
+import { useNavigate } from "react-router-dom"
 
 export const SearchContext = createContext({})
 
 function SearchProvider({ children }) {
   const [meals, setMeals] = useState([])
+  const [searchName, setSearchName] = useState()
 
-  async function fetchMeals(search){
-        const response = await api.get(`/meals?title=${search}`)
-        setMeals(response.data)
-        
+  async function fetchMealsSearch(search) {
+
+    if(search !== ""){
+      setMeals([])
+      const response = await api.get(`/meals?name=${search}`)
+      setMeals(response.data)
+      setSearchName(search)
+    } else {
+      setSearchName(search)
+      setMeals([])
     }
+  }
 
-  return(
-    <SearchContext.Provider value={{ 
+  return (
+    <SearchContext.Provider value={{
       meals,
-      fetchMeals
-      }}>
+      fetchMealsSearch,
+      searchName
+    }}>
       {children}
     </SearchContext.Provider>
   )
 }
 
-function useSearch(){
+function useSearch() {
   const context = useContext(SearchContext)
-  
+
   return context
 }
 
