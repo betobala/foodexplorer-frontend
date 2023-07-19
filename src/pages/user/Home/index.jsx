@@ -1,5 +1,5 @@
 import { Container, Slogan, Section, HeaderWrapper, Meals, ControllerBoxLeft, ControllerBoxRight, Desktop, Mobile } from "./styles"
-import SloganImage from "../../../assets/images/macaronPNG.png"
+import SloganImage from "../../../assets/images/macaron"
 import { Header } from "../../../components/Header"
 import { Item } from "../../../components/Item"
 import { Footer } from "../../../components/Footer"
