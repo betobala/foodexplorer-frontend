@@ -1,6 +1,6 @@
 import { Container, ButtonBack, ImageUpload, Category, Items, Hero, Name, Ingredients, Price, Description, Heading, ButtonWrapper } from "./styles"
 import { Header } from "../../../components/Header"
-import { Textarea } from "../../../components/TextArea"
+import { Textarea } from "../../../components/Textarea"
 import { Input } from "../../../components/Input"
 import { ButtonText } from "../../../components/ButtonText"
 import { Button } from "../../../components/Button"
