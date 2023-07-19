@@ -7,8 +7,8 @@ import { FooterSection } from "../../../components/FooterSection"
 import Carousel, { Controller } from "@jjunyjjuny/react-carousel";
 import { useState, useEffect } from "react"
 import { api } from "../../../services/api"
-import { stagger, motion } from "framer-motion"
-import { duration } from "moment/moment"
+import { motion } from "framer-motion"
+
 
 
 export function Home() {
