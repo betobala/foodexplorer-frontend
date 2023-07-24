@@ -3,6 +3,12 @@
 ## Descrição do Projeto
 <p align="center">Uma aplicação web para cadastro de usuários e vizualização de cardápio.</p>
 
+##Preview
+<p align="center">
+  <img alt="Preview" src=".github/preview.png">
+</p>
+
+
 ### Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
