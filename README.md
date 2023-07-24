@@ -5,7 +5,10 @@
 
 ##Preview
 <p align="center">
+  <img alt="Preview" src=".github/preview-images/Login.png">
   <img alt="Preview" src=".github/preview-images/Home.png">
+  <img alt="Preview" src=".github/preview-images/OrderHistory.png">
+  <img alt="Preview" src=".github/preview-images/Favorites.png">
 </p>
 
 
